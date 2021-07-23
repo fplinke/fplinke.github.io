@@ -111,6 +111,13 @@ async  function triggerTransition2010(){
   d3.select(".chart")
   .selectAll("rect")
   .data(data_2010)
+  .on("mouseover",function(d,i) {
+    tooltip.style("opacity", 1)
+    .style("left",(d3.event.pageX)+"px")
+    .style("top",(d3.event.pageY)+"px")
+    .html("Team: "+data_2010[i].Tm+" Games Won: "+data_2010[i].Wtm);
+  })
+  .on("mouseout",function() { tooltip.style("opacity", 0) })
     .transition()
     .delay(100)
     .duration(2000)
@@ -128,6 +135,13 @@ async  function triggerTransition2011(){
   d3.select(".chart")
   .selectAll("rect")
   .data(data_2011)
+  .on("mouseover",function(d,i) {
+    tooltip.style("opacity", 1)
+    .style("left",(d3.event.pageX)+"px")
+    .style("top",(d3.event.pageY)+"px")
+    .html("Team: "+data_2011[i].Tm+" Games Won: "+data_2011[i].Wtm);
+  })
+  .on("mouseout",function() { tooltip.style("opacity", 0) })
     .transition()
     .delay(100)
     .duration(2000)
@@ -145,6 +159,13 @@ async  function triggerTransition2012(){
   d3.select(".chart")
   .selectAll("rect")
   .data(data_2012)
+  .on("mouseover",function(d,i) {
+    tooltip.style("opacity", 1)
+    .style("left",(d3.event.pageX)+"px")
+    .style("top",(d3.event.pageY)+"px")
+    .html("Team: "+data_2012[i].Tm+" Games Won: "+data_2012[i].Wtm);
+  })
+  .on("mouseout",function() { tooltip.style("opacity", 0) })
     .transition()
     .delay(100)
     .duration(2000)
@@ -162,6 +183,13 @@ async  function triggerTransition2013(){
   d3.select(".chart")
   .selectAll("rect")
   .data(data_2013)
+  .on("mouseover",function(d,i) {
+    tooltip.style("opacity", 1)
+    .style("left",(d3.event.pageX)+"px")
+    .style("top",(d3.event.pageY)+"px")
+    .html("Team: "+data_2013[i].Tm+" Games Won: "+data_2013[i].Wtm);
+  })
+  .on("mouseout",function() { tooltip.style("opacity", 0) })
     .transition()
     .delay(100)
     .duration(2000)
@@ -179,6 +207,13 @@ async  function triggerTransition2014(){
   d3.select(".chart")
   .selectAll("rect")
   .data(data_2014)
+  .on("mouseover",function(d,i) {
+    tooltip.style("opacity", 1)
+    .style("left",(d3.event.pageX)+"px")
+    .style("top",(d3.event.pageY)+"px")
+    .html("Team: "+data_2014[i].Tm+" Games Won: "+data_2014[i].Wtm);
+  })
+  .on("mouseout",function() { tooltip.style("opacity", 0) })
     .transition()
     .delay(100)
     .duration(2000)
@@ -196,6 +231,13 @@ async  function triggerTransition2015(){
   d3.select(".chart")
   .selectAll("rect")
   .data(data_2015)
+  .on("mouseover",function(d,i) {
+    tooltip.style("opacity", 1)
+    .style("left",(d3.event.pageX)+"px")
+    .style("top",(d3.event.pageY)+"px")
+    .html("Team: "+data_2015[i].Tm+" Games Won: "+data_2015[i].Wtm);
+  })
+  .on("mouseout",function() { tooltip.style("opacity", 0) })
     .transition()
     .delay(100)
     .duration(2000)
@@ -213,6 +255,13 @@ async  function triggerTransition2016(){
   d3.select(".chart")
   .selectAll("rect")
   .data(data_2016)
+  .on("mouseover",function(d,i) {
+    tooltip.style("opacity", 1)
+    .style("left",(d3.event.pageX)+"px")
+    .style("top",(d3.event.pageY)+"px")
+    .html("Team: "+data_2016[i].Tm+" Games Won: "+data_2016[i].Wtm);
+  })
+  .on("mouseout",function() { tooltip.style("opacity", 0) })
     .transition()
     .delay(100)
     .duration(2000)
@@ -230,6 +279,13 @@ async  function triggerTransition2017(){
   d3.select(".chart")
   .selectAll("rect")
   .data(data_2017)
+  .on("mouseover",function(d,i) {
+    tooltip.style("opacity", 1)
+    .style("left",(d3.event.pageX)+"px")
+    .style("top",(d3.event.pageY)+"px")
+    .html("Team: "+data_2017[i].Tm+" Games Won: "+data_2017[i].Wtm);
+  })
+  .on("mouseout",function() { tooltip.style("opacity", 0) })
     .transition()
     .delay(100)
     .duration(2000)
@@ -247,6 +303,13 @@ async  function triggerTransition2018(){
   d3.select(".chart")
   .selectAll("rect")
   .data(data_2018)
+  .on("mouseover",function(d,i) {
+    tooltip.style("opacity", 1)
+    .style("left",(d3.event.pageX)+"px")
+    .style("top",(d3.event.pageY)+"px")
+    .html("Team: "+data_2018[i].Tm+" Games Won: "+data_2018[i].Wtm);
+  })
+  .on("mouseout",function() { tooltip.style("opacity", 0) })
     .transition()
     .delay(100)
     .duration(2000)
@@ -264,6 +327,13 @@ async  function triggerTransition2019(){
   d3.select(".chart")
   .selectAll("rect")
   .data(data_2019)
+  .on("mouseover",function(d,i) {
+    tooltip.style("opacity", 1)
+    .style("left",(d3.event.pageX)+"px")
+    .style("top",(d3.event.pageY)+"px")
+    .html("Team: "+data_2019[i].Tm+" Games Won: "+data_2019[i].Wtm);
+  })
+  .on("mouseout",function() { tooltip.style("opacity", 0) })
     .transition()
     .delay(100)
     .duration(2000)
