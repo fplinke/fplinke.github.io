@@ -17,8 +17,8 @@
   <h1>MLB Reconds for the 2012 Regular Season</h1>   
 <p>Here is the data: <span id="mlbdata"></span></p>
 
-<svg class="chart"></svg>
-<svg class="chart2" width = 1000 height = 1000></svg>
+<svg class="chart_win_loss" width = 500 height = 500></svg>
+<svg class="chart_statistics" width = 500 height = 500></svg>
 <div id="tooltip"></div>
  
 <p>  
@@ -40,7 +40,7 @@ async function init() {
 </script>  
   
 <script>
-var width = 1000, height = 1000;
+var width = 500, height = 500;
 var x = d3.scaleLinear().domain([0,30]).range([0,width])
 var y = d3.scaleLinear().domain([0,120]).range([height,0])
 var tooltip = d3.select("#tooltip");
@@ -56,7 +56,7 @@ async function main() {
     }
   }
 document.getElementById("mlbdata").innerHTML = data_2014[0];
-d3.select(".chart2")
+d3.select(".chart_win_loss")
   .selectAll("rect")
   .data(data_2014)
   .enter()
@@ -82,7 +82,7 @@ async  function triggerTransitionLosses(){
        data_2014.push(mlb_data[i])  
     }
   }
-  d3.select(".chart2")
+  d3.select(".chart_win_loss")
   .selectAll("rect")
   .data(data_2014)
     .transition()
@@ -99,7 +99,7 @@ async  function triggerTransitionHomeRuns(){
        data_2014.push(mlb_data[i])  
     }
   }
-  d3.select(".chart2")
+  d3.select(".chart_win_loss")
   .selectAll("rect")
   .data(data_2014)
     .transition()
@@ -116,7 +116,7 @@ async  function triggerTransitionBattingAverage(){
        data_2014.push(mlb_data[i])  
     }
   }
-  d3.select(".chart2")
+  d3.select(".chart_win_loss")
   .selectAll("rect")
   .data(data_2014)
     .transition()
