@@ -46,12 +46,12 @@ document.getElementById("data").innerHTML = data;
   
 async function main() {
  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
- var data_2014 = []
+ var data_2014 = [];
  for (var i = 0; i < mlb_data.length; i++) {
     if (mlb_data[i].Year == 2014) {
-       data_2014.push(mlbdata[i])  
+       data_2014.push(mlb_data[i])  
     }
-    }
+  }
 document.getElementById("mlbdata").innerHTML = data_2014[0];
 d3.select(".chart")
   .selectAll("rect")
@@ -59,9 +59,9 @@ d3.select(".chart")
   .enter()
   .append("rect")
   .attr("width",33)
-  .attr("height",function(d) { return height - y(d); })
+  .attr("height",function(d,i) { return height - y(data_2014[i].Wtm); })
   .attr("x",function(d,i) { return x(i); })
-  .attr("y",function(d) {return y(d); })
+  .attr("y",function(d,i) {return y(data_2014[i].Wtm); })
   .style("fill",function(d,i) {return crange[i];})
   .on("mouseover",function(d,i) {
     tooltip.style("opacity", 1)
@@ -73,7 +73,6 @@ d3.select(".chart")
   .transition().duration(3000).delay(3000)
   .attr("height",function(d) { return y(d); })
   .attr("y",function(d) {return y(d); });
- }) 
 }
 </script>  
 </html>
