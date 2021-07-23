@@ -42,7 +42,7 @@ Click to view different team stats!
 </body> 
   
 <script>
-var winner = ["San Fransisco Giants", "St. Louis Cardinals", "San Fransisco Giants", "Boston Red Sox", "San Fransisco Giants", "Kansas City Royals", "Chicago Cubs", "Houston Astros", "Boston Red Sox", "Washington Nationals"]
+var winner = ["San Fransisco Giants", "St. Louis Cardinals", "San Fransisco Giants", "Boston Red Sox", "San Fransisco Giants", "Kansas City Royals", "Chicago Cubs", "Houston Astros", "Boston Red Sox", "Washington Nationals", "Please select a year below to see the World Series Champion!"]
 var width = 1200, height = 600;
 var x = d3.scaleLinear().domain([0,30]).range([0,width])
 var y = d3.scaleLinear().domain([0,1]).range([height,0])
@@ -100,6 +100,7 @@ d3.select(".chart")
     .duration(2000)
   .attr("height",height - y(.5))
   .attr("y",y(.5));
+  document.getElementById("winner").innerHTML = winner[10];
 }
   
 async  function triggerTransition2010(){
