@@ -34,6 +34,9 @@ var data3 = Promise.all([data2]).then((values) => {
   console.log(values);
 });
   
+console.log(data3)
+  console.log(data3[0])
+  
 var width = 1000, height = 1000;
 var data = [4,8,15,16,23,42];
 var x = d3.scaleLinear().domain([0,30]).range([0,width])
