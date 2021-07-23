@@ -77,7 +77,7 @@
         .attr("width",40)
         .attr("height",y(1))
         .attr("x",function(d,i) { return x(i); })
-        .attr("y",y(0));
+        .attr("y",y(0))
         .style("fill",function(d,i) {return crange[i];})
         .on("mouseover",function(d,i) {
           tooltip.style("opacity", 1)
@@ -90,7 +90,7 @@
           .delay(100)
           .duration(2000)
         .attr("height",y(0))
-        .attr("y",y(1));
+        .attr("y",y(1))
         .transition()
           .delay(100)
           .duration(2000)
