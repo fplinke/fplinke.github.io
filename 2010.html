@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <script src='https://d3js.org/d3.v5.min.js'></script>
-<style> .chart rect { fill: steelblue } </style>
+<style> .chart rect { fill: steelblue } 
+#tooltip {
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  width: 60px; height: 40px;
+  background: white;
+  border: 0px;
+</style>
+
 <html>
 <body>
   <p>Here is the data: <span id="data"></span></p>
 
-<svg class="chart" width="200" height="500">
-</svg>
+<svg class="chart" width="200" height="500"></svg>
+<div id="tooltip"></div>
+  
 <a href="https://fplinke.github.io/2011.html">2011</a>
   <button onclick="location.href='https://fplinke.github.io/2011.html';">2011</button>
 </body>
@@ -22,5 +32,12 @@ d3.select(".chart")
   .attr("height",function(d) { return 10*d; })
   .attr("x",function(d,i) { return 20*i; })
   .attr("y",function(d) {return 420-10*d; });
+  .on("mouseover",function(d,i) {
+    tooltip.style("opacity", 1)
+    .style("left",(d3.event.pageX)+"px")
+    .style("top",(d3.event.pageY)+"px")
+    .html("Item #"+i+" is "+d);
+  })
+  .on("mouseout",function() { tooltip.style("opacity", 0) })
 </script>  
 </html>
