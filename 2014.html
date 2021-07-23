@@ -84,9 +84,9 @@ d3.select(".chart")
   .enter()
   .append("rect")
   .attr("width",50)
-  .attr("height",function(d,i) { return height - y(.25); })
+  .attr("height",height - y(.25))
   .attr("x",function(d,i) { return x(i); })
-  .attr("y",function(d,i) {return y(.25); })
+  .attr("y",y(.25)})
   .style("fill",function(d,i) {return crange[i];})
   .on("mouseover",function(d,i) {
     tooltip.style("opacity", 1)
@@ -98,13 +98,13 @@ d3.select(".chart")
    .transition()
     .delay(100)
     .duration(500)
-    .attr("height",function(d,i) { return height - y(.75); })
-  .attr("y",function(d,i) {return y(.75); });
+    .attr("height",height - y(.75))
+    .attr("y",y(.75);
     .transition()
     .delay(100)
     .duration(500)
-    .attr("height",function(d,i) { return height - y(.5); })
-  .attr("y",function(d,i) {return y(.5); });
+    .attr("height",height - y(.5))
+  .attr("y",y(.5));
 }
 async  function triggerTransitionWins(){
   const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
