@@ -95,11 +95,6 @@ d3.select(".chart")
     .html("Team: "+data_2014[i].Tm);
   })
   .on("mouseout",function() { tooltip.style("opacity", 0) })
-    .transition()
-    .delay(100)
-    .duration(500)
-    .attr("height",height - y(.5))
-  .attr("y",y(.5));
 }
 async  function triggerTransitionWins(){
   const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
