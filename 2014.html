@@ -77,7 +77,7 @@ d3.select(".chart")
   .attr("y",function(d,i) {return y(data_2014[i].Wtm); });
 }
 async  function triggerTransitionLosses(){
-  const data4 = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
+  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
   var data_2014 = [];
  for (var i = 0; i < mlb_data.length; i++) {
     if (mlb_data[i].Year == 2014) {
@@ -90,8 +90,8 @@ async  function triggerTransitionLosses(){
     .transition()
     .delay(100)
     .duration(2000)
-    .attr("height",function(d,i) { return 500; })
-  .attr("y",function(d,i) {return 500; });
+    .attr("height",function(d,i) { return height - y(data_2014[i].Ltm); })
+  .attr("y",function(d,i) {return y(data_2014[i].Ltm); });
 }
 
 </script>  
