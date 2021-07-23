@@ -38,7 +38,7 @@ var cs = d3.scaleLinear().domain(cdomain).range(crange);
   
 document.getElementById("data").innerHTML = data;
 d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv').then(function(mlbdata){
-  var data2012 = []
+  var data2012;
   for (var i = 0; i < mlbdata.length; i++) {
     if (mlbdata[i].Year == 2012) {
        data2012.push(mlbdata[i])  
