@@ -75,7 +75,7 @@ d3.select(".chart")
   .transition().duration(3000).delay(3000)
   .attr("height",function(d,i) { return y(data_2014[i].Wtm); })
   .attr("y",function(d,i) {return y(data_2014[i].Wtm); });
-
+}
 function triggerTransitionLosses(){
   d3.select(".chart")
   .selectAll("rect")
@@ -83,9 +83,9 @@ function triggerTransitionLosses(){
     .transition()
     .delay(100)
     .duration(2000)
-    .attr("height",function(d,i) { return height - y(data_2014[i].Ltm); })
-  .attr("y",function(d,i) {return y(data_2014[i].Ltm); })
+    .attr("height",function(d,i) { return 500; })
+  .attr("y",function(d,i) {return 500; })
 }
-}
+
 </script>  
 </html>
