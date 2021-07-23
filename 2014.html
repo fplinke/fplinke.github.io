@@ -76,14 +76,22 @@ d3.select(".chart")
   .attr("height",function(d,i) { return y(data_2014[i].Wtm); })
   .attr("y",function(d,i) {return y(data_2014[i].Wtm); });
 }
-function triggerTransitionLosses(){
+async  function triggerTransitionLosses(){
+  const data4 = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
+  var data_2014 = [];
+ for (var i = 0; i < mlb_data.length; i++) {
+    if (mlb_data[i].Year == 2014) {
+       data_2014.push(mlb_data[i])  
+    }
+  }
   d3.select(".chart")
   .selectAll("rect")
+  .data(data_2014)
     .transition()
     .delay(100)
     .duration(2000)
     .attr("height",function(d,i) { return 500; })
-  .attr("y",function(d,i) {return 500; })
+  .attr("y",function(d,i) {return 500; });
 }
 
 </script>  
