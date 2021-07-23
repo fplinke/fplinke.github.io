@@ -31,26 +31,12 @@ async function init() {
   console.log(data4[0])
   console.log(data4[0].Year)
 }
-  </script>  
+ console.log(data4) 
+</script>  
 </body>
 
-  
-  
-  
-<script>
-var data2 = d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
-  console.log(data2)
-
-Promise.all([data2]).then((values) => {
-  console.log(values);
-  console.log(values[0]);
-  var data3 = [];
-  data3.push(values[0])
-  console.log(data3[0])
-});
-  
- 
-  
+   
+<script>  
 var width = 1000, height = 1000;
 var data = [4,8,15,16,23,42];
 var x = d3.scaleLinear().domain([0,30]).range([0,width])
