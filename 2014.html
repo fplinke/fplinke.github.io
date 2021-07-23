@@ -17,7 +17,7 @@
   <h1>MLB Team Stats for the 2014 Regular Season</h1>   
 <p>Here is the data: <span id="mlbdata"></span></p>
 
-<svg class="chart" width = 2000 height = 500></svg>
+<svg class="chart" width = 1500 height = 750></svg>
 <div id="tooltip"></div>
 <p>
 Click to View other Years!
@@ -48,7 +48,7 @@ async function init() {
 </script>  
   
 <script>
-var width = 2000, height = 500;
+var width = 1500, height = 750;
 var x = d3.scaleLinear().domain([0,30]).range([0,width])
 var y = d3.scaleLinear().domain([0,1]).range([height,0])
 var tooltip = d3.select("#tooltip");
@@ -83,7 +83,7 @@ d3.select(".chart")
   .data(data_2014)
   .enter()
   .append("rect")
-  .attr("width",30)
+  .attr("width",50)
   .attr("height",height - y(.25))
   .attr("x",function(d,i) { return x(i); })
   .attr("y",y(.25))
