@@ -48,7 +48,7 @@ async function init() {
 </script>  
   
 <script>
-var width = 2000, height = 500;
+var width = 1500, height = 500;
 var x = d3.scaleLinear().domain([0,1]).range([0,width])
 var y = d3.scaleLinear().domain([0,1]).range([height,0])
 var tooltip = d3.select("#tooltip");
@@ -83,10 +83,10 @@ d3.select(".chart")
   .data(data_2014)
   .enter()
   .append("rect")
-  .attr("width",30)
-  .attr("height",function(d,i) { return height - y(data_2014[i].Wtm); })
+  .attr("width",50)
+  .attr("height",function(d,i) { return height - y(.25); })
   .attr("x",function(d,i) { return x(i); })
-  .attr("y",function(d,i) {return y(data_2014[i].Wtm); })
+  .attr("y",function(d,i) {return y(.25); })
   .style("fill",function(d,i) {return crange[i];})
   .on("mouseover",function(d,i) {
     tooltip.style("opacity", 1)
@@ -95,6 +95,16 @@ d3.select(".chart")
     .html("Team: "+data_2014[i].Tm);
   })
   .on("mouseout",function() { tooltip.style("opacity", 0) })
+   .transition()
+    .delay(100)
+    .duration(500)
+    .attr("height",function(d,i) { return height - y(.75); })
+  .attr("y",function(d,i) {return y(.75); });
+    .transition()
+    .delay(100)
+    .duration(500)
+    .attr("height",function(d,i) { return height - y(.5); })
+  .attr("y",function(d,i) {return y(.5); });
 }
 async  function triggerTransitionWins(){
   const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
