@@ -29,6 +29,7 @@ async function init() {
  const data4 = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
   console.log(data4)
   console.log(data4[0])
+  console.log(data4[0].Year)
 }
   </script>  
 </body>
@@ -46,7 +47,6 @@ Promise.all([data2]).then((values) => {
   var data3 = [];
   data3.push(values[0])
   console.log(data3[0])
-  console.log(data3[0].Year)
 });
   
  
