@@ -21,7 +21,7 @@
 d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv').then(function(mlbdata){
  d3.select(".chart")
   .selectAll("rect")
-  .data(data)
+  .data(mlbdata[0])
   .enter()
   .append("rect")
   .attr("width",33)
