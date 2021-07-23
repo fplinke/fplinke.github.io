@@ -79,10 +79,12 @@ d3.select(".chart")
 function triggerTransitionLosses(){
   d3.select(".chart")
   .selectAll("rect")
+  .data(data_2014)
     .transition()
     .delay(100)
     .duration(2000)
-    .attr("width", "400")
+    .attr("height",function(d,i) { return height - y(data_2014[i].Ltm); })
+  .attr("y",function(d,i) {return y(data_2014[i].Ltm); })
 }
 </script>  
 </html>
