@@ -18,8 +18,8 @@
 
   <script>
     
-d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv', function(mlbdata){
-        console.log(mlbdata[1]);  
+d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv').then(function(mlbdata){
+        console.log(mlbdata);  
 });
   </script
       
