@@ -17,8 +17,10 @@
 <body>
   <script>
     
-   const mlbdata = d3.csv('https://fplinke.github.io/mlb-stats-2010to2019.csv');
-   console.log(mlbdata);
+d3.csv('https://fplinke.github.io/mlb-stats-2010to2019.csv', function(mlbdata){
+    console.log(mlbdata);
+});
+
        
 
   </script>
