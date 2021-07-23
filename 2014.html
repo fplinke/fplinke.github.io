@@ -60,7 +60,7 @@ var y_OPS = d3.scaleLinear().domain([.2,.9]).range([height,0])
   
   
 async function main() {
- const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
+ const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
  var data_2014 = [];
  for (var i = 0; i < mlb_data.length; i++) {
     if (mlb_data[i].Year == 2014) {
@@ -98,7 +98,7 @@ d3.select(".chart")
 }
   
 async  function triggerTransitionWins(){
-  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
+  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
   var data_2014 = [];
  for (var i = 0; i < mlb_data.length; i++) {
     if (mlb_data[i].Year == 2014) {
@@ -115,7 +115,7 @@ async  function triggerTransitionWins(){
   .attr("y",function(d,i) {return y_WL(data_2014[i].Wtm); });
 }  
 async  function triggerTransitionLosses(){
-  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
+  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
   var data_2014 = [];
  for (var i = 0; i < mlb_data.length; i++) {
     if (mlb_data[i].Year == 2014) {
@@ -132,7 +132,7 @@ async  function triggerTransitionLosses(){
   .attr("y",function(d,i) {return y_WL(data_2014[i].Ltm); });
 }
 async  function triggerTransitionHomeRuns(){
-  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
+  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
   var data_2014 = [];
  for (var i = 0; i < mlb_data.length; i++) {
     if (mlb_data[i].Year == 2014) {
@@ -149,7 +149,7 @@ async  function triggerTransitionHomeRuns(){
   .attr("y",function(d,i) {return y_HR(data_2014[i].HR); });
 }
 async  function triggerTransitionBattingAverage(){
-  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
+  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
   var data_2014 = [];
  for (var i = 0; i < mlb_data.length; i++) {
     if (mlb_data[i].Year == 2014) {
@@ -166,7 +166,7 @@ async  function triggerTransitionBattingAverage(){
   .attr("y",function(d,i) {return y_BA(data_2014[i].BA); });
 }
 async  function triggerTransitionOnBasePercentage(){
-  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
+  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
   var data_2014 = [];
  for (var i = 0; i < mlb_data.length; i++) {
     if (mlb_data[i].Year == 2014) {
@@ -183,7 +183,7 @@ async  function triggerTransitionOnBasePercentage(){
   .attr("y",function(d,i) {return y_OBP(data_2014[i].OBP); });
 }  
 async  function triggerTransitionSLG(){
-  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
+  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
   var data_2014 = [];
  for (var i = 0; i < mlb_data.length; i++) {
     if (mlb_data[i].Year == 2014) {
@@ -200,7 +200,7 @@ async  function triggerTransitionSLG(){
   .attr("y",function(d,i) {return y_SLG(data_2014[i].SLG); });
 }
 async  function triggerTransitionOPS(){
-  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
+  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
   var data_2014 = [];
  for (var i = 0; i < mlb_data.length; i++) {
     if (mlb_data[i].Year == 2014) {
