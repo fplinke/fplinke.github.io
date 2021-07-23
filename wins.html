@@ -16,7 +16,7 @@
 <body onload='main()'>
   <h1>Wins per MLB team</h1>   
   <p>Hover over each color to see the team and number of games won!</p>
-  <p>World Series Champion: <span id="winner"></span></p>
+  <p style="font-size:20px">World Series Champion: <span id="winner"></span></p>
 <svg class="chart" width = 1200 height = 600 style="border:solid;" viewBox="0 0 1200 600"></svg>
 <div id="tooltip"></div>
 <p>
@@ -42,7 +42,7 @@ Click to view different team stats!
 </body> 
   
 <script>
-var winner = ["Cubs", "Sox"]
+var winner = ["San Fransisco Giants", "St. Louis Cardinals", "San Fransisco Giants", "Boston Red Sox", "San Fransisco Giants", "Kansas City Royals", "Chicago Cubs", "Houston Astros", "Boston Red Sox", "Washington Nationals"]
 var width = 1200, height = 600;
 var x = d3.scaleLinear().domain([0,30]).range([0,width])
 var y = d3.scaleLinear().domain([0,1]).range([height,0])
@@ -150,6 +150,7 @@ async  function triggerTransition2011(){
     .duration(2000)
     .attr("height",function(d,i) { return height - y_WL(data_2011[i].Wtm); })
   .attr("y",function(d,i) {return y_WL(data_2011[i].Wtm); });
+  document.getElementById("winner").innerHTML = winner[1];
 }    
 async  function triggerTransition2012(){
   const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
@@ -174,6 +175,7 @@ async  function triggerTransition2012(){
     .duration(2000)
     .attr("height",function(d,i) { return height - y_WL(data_2012[i].Wtm); })
   .attr("y",function(d,i) {return y_WL(data_2012[i].Wtm); });
+  document.getElementById("winner").innerHTML = winner[2];
 }  
 async  function triggerTransition2013(){
   const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
@@ -198,6 +200,7 @@ async  function triggerTransition2013(){
     .duration(2000)
     .attr("height",function(d,i) { return height - y_WL(data_2013[i].Wtm); })
   .attr("y",function(d,i) {return y_WL(data_2013[i].Wtm); });
+  document.getElementById("winner").innerHTML = winner[3];
 }    
 async  function triggerTransition2014(){
   const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
@@ -222,6 +225,7 @@ async  function triggerTransition2014(){
     .duration(2000)
     .attr("height",function(d,i) { return height - y_WL(data_2014[i].Wtm); })
   .attr("y",function(d,i) {return y_WL(data_2014[i].Wtm); });
+  document.getElementById("winner").innerHTML = winner[4];
 }    
 async  function triggerTransition2015(){
   const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
@@ -246,6 +250,7 @@ async  function triggerTransition2015(){
     .duration(2000)
     .attr("height",function(d,i) { return height - y_WL(data_2015[i].Wtm); })
   .attr("y",function(d,i) {return y_WL(data_2015[i].Wtm); });
+  document.getElementById("winner").innerHTML = winner[5];
 }   
 async  function triggerTransition2016(){
   const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
@@ -270,6 +275,7 @@ async  function triggerTransition2016(){
     .duration(2000)
     .attr("height",function(d,i) { return height - y_WL(data_2016[i].Wtm); })
   .attr("y",function(d,i) {return y_WL(data_2016[i].Wtm); });
+  document.getElementById("winner").innerHTML = winner[6];
 }    
 async  function triggerTransition2017(){
   const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
@@ -294,6 +300,7 @@ async  function triggerTransition2017(){
     .duration(2000)
     .attr("height",function(d,i) { return height - y_WL(data_2017[i].Wtm); })
   .attr("y",function(d,i) {return y_WL(data_2017[i].Wtm); });
+  document.getElementById("winner").innerHTML = winner[7];
 }   
 async  function triggerTransition2018(){
   const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
@@ -318,6 +325,7 @@ async  function triggerTransition2018(){
     .duration(2000)
     .attr("height",function(d,i) { return height - y_WL(data_2018[i].Wtm); })
   .attr("y",function(d,i) {return y_WL(data_2018[i].Wtm); });
+  document.getElementById("winner").innerHTML = winner[8];
 }   
 async  function triggerTransition2019(){
   const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
@@ -342,9 +350,8 @@ async  function triggerTransition2019(){
     .duration(2000)
     .attr("height",function(d,i) { return height - y_WL(data_2019[i].Wtm); })
   .attr("y",function(d,i) {return y_WL(data_2019[i].Wtm); });
+  document.getElementById("winner").innerHTML = winner[9];
 }    
   
-
-
 </script>  
 </html>
