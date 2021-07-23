@@ -25,6 +25,14 @@
 <button onclick="location.href='https://fplinke.github.io/2012.html';">2012</button>
 </p>
 </body>
+<script>
+async function init() {
+ const data4 = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
+  console.log(data4)
+}
+  </script>
+  
+  
   
 <script>
 var data2 = d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
