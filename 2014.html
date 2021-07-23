@@ -23,7 +23,7 @@
 <p>  
 <a href="https://fplinke.github.io/2012.html">2012</a>
 <button onclick="location.href='https://fplinke.github.io/2012.html';">2012</button>
-<button onclick="triggerTransition()">Losses</button>
+<button onclick="triggerTransitionLosses()">Losses</button>
   <button onclick="triggerTransition()">Home Runs</button>
   <button onclick="triggerTransition()">Batting Average</button>
 </p>
@@ -75,6 +75,14 @@ d3.select(".chart")
   .transition().duration(3000).delay(3000)
   .attr("height",function(d,i) { return y(data_2014[i].Wtm); })
   .attr("y",function(d,i) {return y(data_2014[i].Wtm); });
+}
+function triggerTransitionLosses(){
+  d3.select(".chart")
+  .selectAll("rect")
+    .transition()
+    .delay(100)
+    .duration(2000)
+    .attr("width", "400")
 }
 </script>  
 </html>
