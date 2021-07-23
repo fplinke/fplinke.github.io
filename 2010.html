@@ -31,7 +31,7 @@ d3.select(".chart")
   .attr("width",19)
   .attr("height",function(d) { return 10*d; })
   .attr("x",function(d,i) { return 20*i; })
-  .attr("y",function(d) {return 420-10*d; });
+  .attr("y",function(d) {return 420-10*d; })
   .on("mouseover",function(d,i) {
     tooltip.style("opacity", 1)
     .style("left",(d3.event.pageX)+"px")
