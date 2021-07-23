@@ -2,7 +2,7 @@
 <script src='https://d3js.org/d3.v5.min.js'></script>
 
 <style> 
-.chart rect { fill: lightgreen } 
+.chart rect { fill: lightred } 
 #tooltip {
   opacity: 0;
   position: absolute;
@@ -17,9 +17,9 @@
 <body>
 
   <script>
-d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv', function(data) {
-    for (var i = 0; i < data.length; i++) {
-        console.log(data[i].Year);
+d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv', function(mlbdata) {
+    for (var i = 0; i < mlbdata.length; i++) {
+        console.log(mlbdata[i].Year);
     }
 });
 </script>        
