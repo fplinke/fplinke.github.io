@@ -51,6 +51,9 @@ var cdomain = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,
 var x_stats = d3.scaleLinear().domain([0,30]).range([0,width])
 var y_stats = d3.scaleLinear().domain([0,1]).range([height,0]) 
 
+var x_HR = d3.scaleLinear().domain([0,30]).range([0,width])
+var y_HR = d3.scaleLinear().domain([0,250]).range([height,0]) 
+
   
   
 async function main() {
@@ -128,8 +131,8 @@ async  function triggerTransitionHomeRuns(){
     .transition()
     .delay(100)
     .duration(2000)
-    .attr("height",function(d,i) { return height - y(data_2014[i].HR); })
-  .attr("y",function(d,i) {return y(data_2014[i].HR); });
+    .attr("height",function(d,i) { return height - y_HR(data_2014[i].HR); })
+  .attr("y",function(d,i) {return y_HR(data_2014[i].HR); });
 }
 async  function triggerTransitionBattingAverage(){
   const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
