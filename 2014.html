@@ -24,8 +24,8 @@
 <a href="https://fplinke.github.io/2012.html">2012</a>
 <button onclick="location.href='https://fplinke.github.io/2012.html';">2012</button>
 <button onclick="triggerTransitionLosses()">Losses</button>
-  <button onclick="triggerTransition()">Home Runs</button>
-  <button onclick="triggerTransition()">Batting Average</button>
+  <button onclick="triggerTransitionHomeRuns()">Home Runs</button>
+  <button onclick="triggerTransitionBattingAverage()">Batting Average</button>
 </p>
 </body>
   
@@ -72,9 +72,6 @@ d3.select(".chart")
     .html("Item #"+i+" is "+d);
   })
   .on("mouseout",function() { tooltip.style("opacity", 0) })
-  .transition().duration(3000).delay(3000)
-  .attr("height",function(d,i) { return y(data_2014[i].Wtm); })
-  .attr("y",function(d,i) {return y(data_2014[i].Wtm); });
 }
 async  function triggerTransitionLosses(){
   const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
@@ -92,6 +89,40 @@ async  function triggerTransitionLosses(){
     .duration(2000)
     .attr("height",function(d,i) { return height - y(data_2014[i].Ltm); })
   .attr("y",function(d,i) {return y(data_2014[i].Ltm); });
+}
+async  function triggerTransitionHomeRuns(){
+  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
+  var data_2014 = [];
+ for (var i = 0; i < mlb_data.length; i++) {
+    if (mlb_data[i].Year == 2014) {
+       data_2014.push(mlb_data[i])  
+    }
+  }
+  d3.select(".chart")
+  .selectAll("rect")
+  .data(data_2014)
+    .transition()
+    .delay(100)
+    .duration(2000)
+    .attr("height",function(d,i) { return height - y(data_2014[i].HR); })
+  .attr("y",function(d,i) {return y(data_2014[i].HR); });
+}
+async  function triggerTransitionBattingAverage(){
+  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
+  var data_2014 = [];
+ for (var i = 0; i < mlb_data.length; i++) {
+    if (mlb_data[i].Year == 2014) {
+       data_2014.push(mlb_data[i])  
+    }
+  }
+  d3.select(".chart")
+  .selectAll("rect")
+  .data(data_2014)
+    .transition()
+    .delay(100)
+    .duration(2000)
+    .attr("height",function(d,i) { return height - y(data_2014[i].BA); })
+  .attr("y",function(d,i) {return y(data_2014[i].BA); });
 }
 
 </script>  
