@@ -70,8 +70,8 @@ d3.select(".chart")
   })
   .on("mouseout",function() { tooltip.style("opacity", 0) })
   .transition().duration(3000).delay(3000)
-  .attr("height",function(d) { return y(d); })
-  .attr("y",function(d) {return y(d); });
+  .attr("height",function(d,i) { return y(data_2014[i].Wtm); })
+  .attr("y",function(d,i) {return y(data_2014[i].Wtm); });
 }
 </script>  
 </html>
