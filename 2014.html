@@ -28,7 +28,7 @@
 <button onclick="triggerTransitionHomeRuns()">Home Runs</button>
 <button onclick="triggerTransitionBattingAverage()">Batting Average</button>
 <button onclick="triggerTransitionOnBasePercentage()">On-Base Percentage</button>
-<button onclick="triggerTransitionBattingSluggingPercentage()">Slugging Percentage</button>
+<button onclick="triggerTransitionBattingSLG()">Slugging Percentage</button>
 <button onclick="triggerTransitionOPS()">OPS</button>
 </p>
 </body>
@@ -174,7 +174,7 @@ async  function triggerTransitionOnBasePercentage(){
     .attr("height",function(d,i) { return height - y_OBP(data_2014[i].OBP); })
   .attr("y",function(d,i) {return y_OBP(data_2014[i].OBP); });
 }  
-async  function triggerTransitionSluggingPercentage(){
+async  function triggerTransitionSLG(){
   const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
   var data_2014 = [];
  for (var i = 0; i < mlb_data.length; i++) {
@@ -188,9 +188,9 @@ async  function triggerTransitionSluggingPercentage(){
     .transition()
     .delay(100)
     .duration(2000)
-    .attr("height",function(d,i) { return height - y_SLG(data_2014[i].SLG); })
-  .attr("y",function(d,i) {return y_SLG(data_2014[i].SLG); });
-}  
+    .attr("height",function(d,i) { return height - y_SLG(data_2014[i].OPS); })
+  .attr("y",function(d,i) {return y_SLG(data_2014[i].OPS); });
+}
 async  function triggerTransitionOPS(){
   const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
   var data_2014 = [];
