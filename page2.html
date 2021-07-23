@@ -13,7 +13,7 @@
 </style>
 
 <html>
-<body>
+<body onload='init()'>
   <h1>MLB Reconds for the 2012 Regular Season</h1>   
 <p>Here is the data: <span id="data"></span></p>
 
@@ -24,14 +24,14 @@
 <a href="https://fplinke.github.io/2012.html">2012</a>
 <button onclick="location.href='https://fplinke.github.io/2012.html';">2012</button>
 </p>
-</body>
 <script>
 async function init() {
  const data4 = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
   console.log(data4)
 }
-init();
-  </script>
+  </script>  
+</body>
+
   
   
   
