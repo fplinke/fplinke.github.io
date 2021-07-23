@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <script src='https://d3js.org/d3.v5.min.js'></script>
+<html>
+<body>
 
-<html><body>
-  
-  <svg width="120" height="500">
-    <rect fill='red'></rect>
-    <rect fill='red'></rect>
-    <rect fill='red'></rect>
-    <rect fill='red'></rect>
-    <rect fill='red'></rect>
-    <rect fill='red'></rect>
-  </svg>
-  </body>
-  <script>
-    var data = [4,8,15,16,23,42];
-    d3.selectALL("rect")
-    .data(data)
-    .attr("width",19)
-    .attr("height",function(d) { return 10*d; })
-    .attr("x",function(d,i) { return 20*i; })
-    .attr("y",function(d) {return 420 - 10*d; });
-  </script>
-  </html>
+<svg width="120" height="500">
+<rect fill='red'></rect>
+<rect fill='red'></rect>
+<rect fill='red'></rect>
+<rect fill='red'></rect>
+<rect fill='red'></rect>
+<rect fill='red'></rect>
+</svg>
+</body>
+<script>
+var data = [4,8,15,16,23,42];
+d3.selectALL("rect")
+  .data(data)
+  .attr("width",19)
+  .attr("height",function(d) { return 10*d; })
+  .attr("x",function(d,i) { return 20*i; })
+  .attr("y",function(d) {return 420-10*d; });
+</script>
+</html>
