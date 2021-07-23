@@ -4,14 +4,14 @@
 <html><body>
   
   <svg width="120" height="500">
-    <rect></rect>
-    <rect></rect>
-    <rect></rect>
-    <rect></rect>
-    <rect></rect>
-    <rect></rect>
+    <rect fill='red'></rect>
+    <rect fill='red'></rect>
+    <rect fill='red'></rect>
+    <rect fill='red'></rect>
+    <rect fill='red'></rect>
+    <rect fill='red'></rect>
   </svg>
-  
+  </body>
   <script>
     var data = [4,8,15,16,23,42];
     d3.selectALL("rect")
@@ -21,4 +21,4 @@
     .attr("x",function(d,i) { return 20*i; })
     .attr("y",function(d) {return 420 - 10*d; });
   </script>
-  </body></html>
+  </html>
