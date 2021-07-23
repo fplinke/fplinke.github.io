@@ -38,10 +38,10 @@ var cs = d3.scaleLinear().domain(cdomain).range(crange);
   
 document.getElementById("data").innerHTML = data;
 d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv').then(function(mlbdata){
-  var data2012;
+  var data2012 = []
   for (var i = 0; i < mlbdata.length; i++) {
     if (mlbdata[i].Year == 2012) {
-       data2012.push(mlbdata[i])  
+       data2012.push(mlbdata[i].Wtm)  
     }
     }
   console.log(data2012)
@@ -53,20 +53,20 @@ d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv').then(function
   .enter()
   .append("rect")
   .attr("width",33)
-  .attr("height",function(d) { return height - y(2012data[d].Wtm); })
+  .attr("height",function(d) { return height - y(d); })
   .attr("x",function(d,i) { return x(i); })
-  .attr("y",function(d) {return y(2012data[d].Wtm); })
+  .attr("y",function(d) {return y(d); })
   .style("fill",function(d,i) {return crange[i];})
   .on("mouseover",function(d,i) {
     tooltip.style("opacity", 1)
     .style("left",(d3.event.pageX)+"px")
     .style("top",(d3.event.pageY)+"px")
-    .html("Item #"+i+" is "+2012data[d].Wtm);
+    .html("Item #"+i+" is "+d);
   })
   .on("mouseout",function() { tooltip.style("opacity", 0) })
   .transition().duration(3000).delay(3000)
-  .attr("height",function(d) { return y(2012data[d].Wtm); })
-  .attr("y",function(d) {return y(2012data[d].Wtm); });
+  .attr("height",function(d) { return y(d); })
+  .attr("y",function(d) {return y(d); });
  }) 
 </script>  
 </html>
