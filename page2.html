@@ -34,7 +34,7 @@ var data3 = []
 Promise.all([data2]).then((values) => {
   console.log(values);
   console.log(values[0]);
-  data3 = values[0]
+  data3.push(values[0])
   console.log(data3[0])
   console.log(data3[0].Year)
 });
