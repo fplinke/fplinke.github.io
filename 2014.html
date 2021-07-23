@@ -188,8 +188,8 @@ async  function triggerTransitionSLG(){
     .transition()
     .delay(100)
     .duration(2000)
-    .attr("height",function(d,i) { return height - y_SLG(data_2014[i].OPS); })
-  .attr("y",function(d,i) {return y_SLG(data_2014[i].OPS); });
+    .attr("height",function(d,i) { return height - y_SLG(data_2014[i].SLG); })
+  .attr("y",function(d,i) {return y_SLG(data_2014[i].SLG); });
 }
 async  function triggerTransitionOPS(){
   const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
