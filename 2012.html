@@ -64,11 +64,10 @@ d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv').then(function
     .html("Item #"+i+" is "+d);
   })
   .on("mouseout",function() { tooltip.style("opacity", 0) })
-})
   .transition().duration(3000).delay(3000)
   .attr("height",function(d) { return y(d); })
   .attr("y",function(d) {return y(d); });
-  
+ }) 
 </script>  
 </html>
 
