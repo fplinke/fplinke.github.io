@@ -39,6 +39,7 @@ d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv').then(function
   for (var i = 0; i < mlbdata.length; i++) {
         var thisdata = mlbdata[i].Wtm     
     }
+  console.log(thisdata)
  d3.select(".chart")
   .selectAll("rect")
   .data(thisdata)
