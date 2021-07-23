@@ -30,10 +30,11 @@
 var data2 = d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
   console.log(data2)
 
-data3 = Promise.all([data2]).then((values) => {
+var data3 = []
+Promise.all([data2]).then((values) => {
   console.log(values);
   console.log(values[0]);
-  var data3 = values[0]
+  data3 = values[0]
   console.log(data3[0])
   console.log(data3[0].Year)
 });
