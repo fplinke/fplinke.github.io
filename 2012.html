@@ -36,13 +36,16 @@ var tooltip = d3.select("#tooltip");
   
 document.getElementById("data").innerHTML = data;
 d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv').then(function(mlbdata){
+  var 2012_data = []
   for (var i = 0; i < mlbdata.length; i++) {
-        var thisdata = mlbdata[i].Wtm     
+    if (mlbdata[i].Year == 2012) {
+       2012_data.push(mlbdata[i].Wtm)  
     }
-  console.log(thisdata)
+    }
+  console.log(2012_data)
  d3.select(".chart")
   .selectAll("rect")
-  .data(thisdata)
+  .data(2012_data)
   .enter()
   .append("rect")
   .attr("width",33)
