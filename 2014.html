@@ -14,18 +14,20 @@
 
 <html>
 <body onload='main()'>
-  <h1>MLB Reconds for the 2012 Regular Season</h1>   
+  <h1>MLB Team Stats for the 2014 Regular Season</h1>   
 <p>Here is the data: <span id="mlbdata"></span></p>
 
 <svg class="chart" width = 500 height = 500></svg>
 <div id="tooltip"></div>
 <p>
+Click to View other Years!
 <a href="https://fplinke.github.io/2012.html">2012</a>
 <button onclick="location.href='https://fplinke.github.io/2013.html';">See 2013 Data!</button> 
 <button onclick="location.href='https://fplinke.github.io/2015.html';">See 2015 Data!</button>   
 </p> 
   
 <p>  
+Click to view different team stats!
 <button onclick="triggerTransitionWins()">Wins</button>
 <button onclick="triggerTransitionLosses()">Losses</button>
 <button onclick="triggerTransitionHomeRuns()">Home Runs</button>
@@ -88,7 +90,7 @@ d3.select(".chart")
     tooltip.style("opacity", 1)
     .style("left",(d3.event.pageX)+"px")
     .style("top",(d3.event.pageY)+"px")
-    .html("Item #"+i+" is "+d);
+    .html("Team: "+data_2014[i].Tm);
   })
   .on("mouseout",function() { tooltip.style("opacity", 0) })
 }
