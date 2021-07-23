@@ -86,7 +86,7 @@ d3.select(".chart")
   .attr("width",50)
   .attr("height",height - y(.25))
   .attr("x",function(d,i) { return x(i); })
-  .attr("y",y(.25)})
+  .attr("y",y(.25))
   .style("fill",function(d,i) {return crange[i];})
   .on("mouseover",function(d,i) {
     tooltip.style("opacity", 1)
