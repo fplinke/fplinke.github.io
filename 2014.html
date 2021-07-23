@@ -56,7 +56,7 @@ async function main() {
     }
   }
 document.getElementById("mlbdata").innerHTML = data_2014[0];
-d3.select(".chart")
+d3.select(".chart2")
   .selectAll("rect")
   .data(data_2014)
   .enter()
@@ -82,7 +82,7 @@ async  function triggerTransitionLosses(){
        data_2014.push(mlb_data[i])  
     }
   }
-  d3.select(".chart")
+  d3.select(".chart2")
   .selectAll("rect")
   .data(data_2014)
     .transition()
@@ -99,7 +99,7 @@ async  function triggerTransitionHomeRuns(){
        data_2014.push(mlb_data[i])  
     }
   }
-  d3.select(".chart")
+  d3.select(".chart2")
   .selectAll("rect")
   .data(data_2014)
     .transition()
@@ -116,7 +116,7 @@ async  function triggerTransitionBattingAverage(){
        data_2014.push(mlb_data[i])  
     }
   }
-  d3.select(".chart")
+  d3.select(".chart2")
   .selectAll("rect")
   .data(data_2014)
     .transition()
