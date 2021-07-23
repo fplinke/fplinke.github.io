@@ -38,7 +38,7 @@ async function init() {
 var data2 = d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
   console.log(data2)
 
-var data3 = []
+var data3 = [];
 Promise.all([data2]).then((values) => {
   console.log(values);
   console.log(values[0]);
