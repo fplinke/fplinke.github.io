@@ -53,7 +53,7 @@ d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv').then(function
   .attr("height",function(d) { return height - y(d); })
   .attr("x",function(d,i) { return x(i); })
   .attr("y",function(d) {return y(d); })
-  .style('fill',function(d,i) { return crange[i]; })
+  .style("fill",function(d,i) { return crange[i]; })
   .on("mouseover",function(d,i) {
     tooltip.style("opacity", 1)
     .style("left",(d3.event.pageX)+"px")
