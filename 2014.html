@@ -17,8 +17,7 @@
   <h1>MLB Reconds for the 2012 Regular Season</h1>   
 <p>Here is the data: <span id="mlbdata"></span></p>
 
-<svg class="chart_win_loss" width = 500 height = 500></svg>
-<svg class="chart_statistics" width = 500 height = 500></svg>
+<svg class="chart" width = 500 height = 500></svg>
 <div id="tooltip"></div>
  
 <p>  
@@ -28,6 +27,9 @@
 <button onclick="triggerTransitionLosses()">Losses</button>
 <button onclick="triggerTransitionHomeRuns()">Home Runs</button>
 <button onclick="triggerTransitionBattingAverage()">Batting Average</button>
+<button onclick="triggerTransitionOnBasePercentage()">On-Base Percentage</button>
+<button onclick="triggerTransitionBattingSluggingPercentage()">Slugging Percentage</button>
+<button onclick="triggerTransitionOPS()">OPS</button>
 </p>
 </body>
   
@@ -48,12 +50,16 @@ var tooltip = d3.select("#tooltip");
 var crange = ["rgb(227,212,173)", "rgb(19,39,79)", "rgb(223,70,1)", "rgb(189,48,57)", "rgb(14,51,134)", "rgb(196,206,212)", "rgb(198,1,31)", "rgb(12,35,64)", "rgb(51,0,111)", "rgb(250,70,22)", "rgb(244,145,30)", "rgb(0,70,135)", "rgb(134,38,51)", "rgb(0,90,156)", "rgb(0,163,224)", "rgb((255,197,47)", "rgb(0,43,92)", "rgb((0,45,114)", "rgb(196,206,211)", "rgb(0,56,49)", "rgb(232,24,40)", "rgb(39,37,31)", "rgb(47,36,29)", "rgb(0,92,92)", "rgb(239,209,159)", "rgb(196,30,58)", "rgb(143,188,230)", "rgb(0,50,120)", "rgb(19,74,142)", "rgb(171,0,3)"];
 var cdomain = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29];  
 
-var x_stats = d3.scaleLinear().domain([0,30]).range([0,width])
-var y_stats = d3.scaleLinear().domain([.2,.3]).range([height,0]) 
-
 var x_HR = d3.scaleLinear().domain([0,30]).range([0,width])
 var y_HR = d3.scaleLinear().domain([0,250]).range([height,0]) 
-
+var x_BA = d3.scaleLinear().domain([0,30]).range([0,width])
+var y_BA = d3.scaleLinear().domain([.2,.3]).range([height,0])
+var x_OBP = d3.scaleLinear().domain([0,30]).range([0,width])
+var y_OBP = d3.scaleLinear().domain([.2,.4]).range([height,0])
+var x_SLG = d3.scaleLinear().domain([0,30]).range([0,width])
+var y_SLG = d3.scaleLinear().domain([.2,.5]).range([height,0])
+var x_OPS = d3.scaleLinear().domain([0,30]).range([0,width])
+var y_OPS = d3.scaleLinear().domain([.2,.9]).range([height,0])
   
   
 async function main() {
@@ -65,7 +71,7 @@ async function main() {
     }
   }
 document.getElementById("mlbdata").innerHTML = data_2014[0];
-d3.select(".chart_win_loss")
+d3.select(".chart")
   .selectAll("rect")
   .data(data_2014)
   .enter()
@@ -91,7 +97,7 @@ async  function triggerTransitionWins(){
        data_2014.push(mlb_data[i])  
     }
   }
-  d3.select(".chart_win_loss")
+  d3.select(".chart")
   .selectAll("rect")
   .data(data_2014)
     .transition()
@@ -108,7 +114,7 @@ async  function triggerTransitionLosses(){
        data_2014.push(mlb_data[i])  
     }
   }
-  d3.select(".chart_win_loss")
+  d3.select(".chart")
   .selectAll("rect")
   .data(data_2014)
     .transition()
@@ -125,7 +131,7 @@ async  function triggerTransitionHomeRuns(){
        data_2014.push(mlb_data[i])  
     }
   }
-  d3.select(".chart_win_loss")
+  d3.select(".chart")
   .selectAll("rect")
   .data(data_2014)
     .transition()
@@ -142,14 +148,65 @@ async  function triggerTransitionBattingAverage(){
        data_2014.push(mlb_data[i])  
     }
   }
-  d3.select(".chart_win_loss")
+  d3.select(".chart")
   .selectAll("rect")
   .data(data_2014)
     .transition()
     .delay(100)
     .duration(2000)
-    .attr("height",function(d,i) { return height - y_stats(data_2014[i].BA); })
-  .attr("y",function(d,i) {return y_stats(data_2014[i].BA); });
+    .attr("height",function(d,i) { return height - y_BA(data_2014[i].BA); })
+  .attr("y",function(d,i) {return y_BA(data_2014[i].BA); });
+}
+async  function triggerTransitionOnBasePercentage(){
+  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
+  var data_2014 = [];
+ for (var i = 0; i < mlb_data.length; i++) {
+    if (mlb_data[i].Year == 2014) {
+       data_2014.push(mlb_data[i])  
+    }
+  }
+  d3.select(".chart")
+  .selectAll("rect")
+  .data(data_2014)
+    .transition()
+    .delay(100)
+    .duration(2000)
+    .attr("height",function(d,i) { return height - y_OBP(data_2014[i].OBP); })
+  .attr("y",function(d,i) {return y_OBP(data_2014[i].OBP); });
+}  
+async  function triggerTransitionSluggingPercentage(){
+  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
+  var data_2014 = [];
+ for (var i = 0; i < mlb_data.length; i++) {
+    if (mlb_data[i].Year == 2014) {
+       data_2014.push(mlb_data[i])  
+    }
+  }
+  d3.select(".chart")
+  .selectAll("rect")
+  .data(data_2014)
+    .transition()
+    .delay(100)
+    .duration(2000)
+    .attr("height",function(d,i) { return height - y_SLG(data_2014[i].SLG); })
+  .attr("y",function(d,i) {return y_SLG(data_2014[i].SLG); });
+}  
+async  function triggerTransitionOPS(){
+  const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-clean.csv');
+  var data_2014 = [];
+ for (var i = 0; i < mlb_data.length; i++) {
+    if (mlb_data[i].Year == 2014) {
+       data_2014.push(mlb_data[i])  
+    }
+  }
+  d3.select(".chart")
+  .selectAll("rect")
+  .data(data_2014)
+    .transition()
+    .delay(100)
+    .duration(2000)
+    .attr("height",function(d,i) { return height - y_OPS(data_2014[i].OPS); })
+  .attr("y",function(d,i) {return y_OPS(data_2014[i].OPS); });
 }
 
 </script>  
