@@ -16,7 +16,7 @@
       <p style="color:black; font-size:25px; font-family:Monaco;"> World Series Champion: <span id="winner"></span></p>
       <p style="color:black; font-size:25px; font-family:Monaco;">Year: <span id="year"></span></p>
       <p style="color:rgb(63, 0, 255); font-size:25px;">Hover over each color to see the team and number of games won!</p>
-      <svg class="chart" width = 1200 height = 600 style="border:solid;" viewBox="0 0 1200 600"></svg>
+      <svg class="chart" width = 1000 height = 600 style="border:solid;" viewBox="0 0 1000 600"></svg>
       <div id="tooltip"></div>
 
    </body>
@@ -37,7 +37,7 @@
              data_compiled.push(mlb_data[i])  
         }
         console.log(mlb_data)
-         console.log(data_compiled_
+         console.log(data_compiled)
       
       d3.select(".chart")
         .selectAll("rect")
