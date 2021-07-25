@@ -16,7 +16,9 @@
       <p style="color:black; font-size:25px; font-family:Monaco;"> World Series Champion: <span id="winner"></span></p>
       <p style="color:black; font-size:25px; font-family:Monaco;">Year: <span id="year"></span></p>
       <p style="color:rgb(63, 0, 255); font-size:25px;">Hover over each color to see the team and number of games won!</p>
-      <svg class="chart" width = 1000 height = 600 style="border:solid;" viewBox="0 0 1000 600"></svg>
+      <svg class="HRchart" width = 1000 height = 600 style="border:solid;" viewBox="0 0 1000 600"></svg>
+      <svg class="BAchart" width = 1000 height = 600 style="border:solid;" viewBox="0 0 1000 600"></svg>
+      <svg class="SLGchart" width = 1000 height = 600 style="border:solid;" viewBox="0 0 1000 600"></svg>
       <div id="tooltip"></div>
 
    </body>
@@ -36,7 +38,7 @@
         console.log(mlb_data)
          console.log(data_compiled)
       
-      d3.select(".chart")
+      d3.select(".HRchart")
         .selectAll("rect")
         .data(data_compiled)
         .enter()
@@ -60,34 +62,57 @@
         .attr("y",function(d,i) {return y_compiled(data_compiled[i].HR); });
         document.getElementById("winner").innerHTML = winner[10];
         document.getElementById("year").innerHTML = "Please Choose a year below!";
-      }
-        
-      async  function triggerTransition2010(){
-        const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
-        var data_2010 = [];
-       for (var i = 0; i < mlb_data.length; i++) {
-          if (mlb_data[i].Year == 2010) {
-             data_2010.push(mlb_data[i])  
-          }
-        }
-        d3.select(".chart")
+         
+     d3.select(".BAchart")
         .selectAll("rect")
         .data(data_compiled)
+        .enter()
+        .append("rect")
+        .attr("width",100)
+        .attr("height",y_compiled(1))
+        .attr("x",function(d,i) { return x_compiled(i); })
+        .attr("y",y_compiled(0))
+        .style("fill",function(d,i) {return color_compiled(i);})
         .on("mouseover",function(d,i) {
           tooltip.style("opacity", 1)
           .style("left",(d3.event.pageX)+"px")
           .style("top",(d3.event.pageY)+"px")
-          .html("Team: "+data_2010[i].Tm+" Wins: "+data_2010[i].Wtm);
+          .html("BAs: "+data_compiled[i].BA);
         })
         .on("mouseout",function() { tooltip.style("opacity", 0) })
-          .transition()
+        .transition()
           .delay(100)
           .duration(2000)
-          .attr("height",function(d,i) { return height - y_WL(data_2010[i].Wtm); })
-        .attr("y",function(d,i) {return y_WL(data_2010[i].Wtm); });
-        document.getElementById("winner").innerHTML = winner[0];
-        document.getElementById("year").innerHTML = data_2010[0].Year;
-      }  
+        .attr("height",function(d,i) { return height - y_compiled(data_compiled[i].BA); })
+        .attr("y",function(d,i) {return y_compiled(data_compiled[i].BA); });
+        document.getElementById("winner").innerHTML = winner[10];
+        document.getElementById("year").innerHTML = "Please Choose a year below!";
+         
+     d3.select(".SLGchart")
+        .selectAll("rect")
+        .data(data_compiled)
+        .enter()
+        .append("rect")
+        .attr("width",100)
+        .attr("height",y_compiled(1))
+        .attr("x",function(d,i) { return x_compiled(i); })
+        .attr("y",y_compiled(0))
+        .style("fill",function(d,i) {return color_compiled(i);})
+        .on("mouseover",function(d,i) {
+          tooltip.style("opacity", 1)
+          .style("left",(d3.event.pageX)+"px")
+          .style("top",(d3.event.pageY)+"px")
+          .html("BAs: "+data_compiled[i].BA);
+        })
+        .on("mouseout",function() { tooltip.style("opacity", 0) })
+        .transition()
+          .delay(100)
+          .duration(2000)
+        .attr("height",function(d,i) { return height - y_compiled(data_compiled[i].SLG); })
+        .attr("y",function(d,i) {return y_compiled(data_compiled[i].SLG); });
+        document.getElementById("winner").innerHTML = winner[10];
+        document.getElementById("year").innerHTML = "Please Choose a year below!";
+      }
         
    </script>  
 </html>
