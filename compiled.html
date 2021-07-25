@@ -72,7 +72,7 @@
         }
         d3.select(".chart")
         .selectAll("rect")
-        .data(data_2010)
+        .data(data_compiled)
         .on("mouseover",function(d,i) {
           tooltip.style("opacity", 1)
           .style("left",(d3.event.pageX)+"px")
