@@ -24,7 +24,7 @@
       var width = 1000, height = 600;
       var x_compiled = d3.scaleLinear().domain([0,10]).range([0,width])
       var y_compiled = d3.scaleLinear().domain([125,250]).range([height,0])
-      var color_compiled  = d3.scaleLinear().domain([125,250]).range(["white","black"])
+      var color_compiled  = d3.scaleLinear().domain([0,9]).range(["white","black"])
       var tooltip = d3.select("#tooltip"); 
       
       async function main() {
@@ -45,7 +45,7 @@
         .attr("height",y_compiled(1))
         .attr("x",function(d,i) { return x_compiled(i); })
         .attr("y",y_compiled(0))
-        .style("fill",function(d,i) {return color_compiled(d);})
+        .style("fill",function(d,i) {return color_compiled(i);})
         .on("mouseover",function(d,i) {
           tooltip.style("opacity", 1)
           .style("left",(d3.event.pageX)+"px")
