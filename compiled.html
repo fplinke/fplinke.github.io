@@ -36,6 +36,8 @@
        for (var i = 0; i < mlb_data.length; i++) {
              data_compiled.push(mlb_data[i])  
         }
+        console.log(mlb_data)
+         console.log(data_compiled_
       
       d3.select(".chart")
         .selectAll("rect")
@@ -43,9 +45,9 @@
         .enter()
         .append("rect")
         .attr("width",100)
-        .attr("height",y(1))
-        .attr("x",function(d,i) { return x(i); })
-        .attr("y",y(0))
+        .attr("height",y_compiled(1))
+        .attr("x",function(d,i) { return x_compiled(i); })
+        .attr("y",y_compiled(0))
         .style("fill",function(d,i) {return crange[i];})
         .on("mouseover",function(d,i) {
           tooltip.style("opacity", 1)
