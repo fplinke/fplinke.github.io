@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<script src='https://d3js.org/d3.v5.min.js'></script>
+<style> 
+   #tooltip {
+   opacity: 0;
+   position: absolute;
+   text-align: center;
+   width: 60px; height: 80px;
+   background: white;
+   border: 1px solid;
+   }
+</style>
+<html>
+   <body onload='main()'>
+      <h1 style="color:rgb(63, 0, 255);">TEAM WIN TOTALS</h1>
+      <p style="color:black; font-size:25px; font-family:Monaco;"> World Series Champion: <span id="winner"></span></p>
+      <p style="color:black; font-size:25px; font-family:Monaco;">Year: <span id="year"></span></p>
+      <p style="color:rgb(63, 0, 255); font-size:25px;">Hover over each color to see the team and number of games won!</p>
+      <svg class="chart" width = 1200 height = 600 style="border:solid;" viewBox="0 0 1200 600"></svg>
+      <div id="tooltip"></div>
+
+   </body>
+   <script>
+      var width = 1000, height = 600;
+      var x_compiled = d3.scaleLinear().domain([0,10]).range([0,width])
+      var y_compiled = d3.scaleLinear().domain([125,250]).range([height,0])
+      var color_compiled  = d3.scaleLinear().domain([0,1]).range(["white","blue"])
+      var tooltip = d3.select("#tooltip");
+      var cdomain = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29];  
+      
+        
+        
+      async function main() {
+       const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-compiled.csv');
+       var data_compiled = [];
+       for (var i = 0; i < mlb_data.length; i++) {
+          if (mlb_data[i].Year == 2014) {
+             data_2014.push(mlb_data[i])  
+          }
+        }
+      
+      d3.select(".chart")
+        .selectAll("rect")
+        .data(mlb_data)
+        .enter()
+        .append("rect")
+        .attr("width",100)
+        .attr("height",y(1))
+        .attr("x",function(d,i) { return x(i); })
+        .attr("y",y(0))
+        .style("fill",function(d,i) {return crange[i];})
+        .on("mouseover",function(d,i) {
+          tooltip.style("opacity", 1)
+          .style("left",(d3.event.pageX)+"px")
+          .style("top",(d3.event.pageY)+"px")
+          .html("Team: "+data_2014[i].Tm);
+        })
+        .on("mouseout",function() { tooltip.style("opacity", 0) })
+        .transition()
+          .delay(100)
+          .duration(2000)
+        .attr("height",function(d,i) { return height - y_compiled(mlb_data[i].HR); })
+        .attr("y",function(d,i) {return y_compiled(data_2010[i].HR); });
+        document.getElementById("winner").innerHTML = winner[10];
+        document.getElementById("year").innerHTML = "Please Choose a year below!";
+      }
+        
+      async  function triggerTransition2010(){
+        const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
+        var data_2010 = [];
+       for (var i = 0; i < mlb_data.length; i++) {
+          if (mlb_data[i].Year == 2010) {
+             data_2010.push(mlb_data[i])  
+          }
+        }
+        d3.select(".chart")
+        .selectAll("rect")
+        .data(data_2010)
+        .on("mouseover",function(d,i) {
+          tooltip.style("opacity", 1)
+          .style("left",(d3.event.pageX)+"px")
+          .style("top",(d3.event.pageY)+"px")
+          .html("Team: "+data_2010[i].Tm+" Wins: "+data_2010[i].Wtm);
+        })
+        .on("mouseout",function() { tooltip.style("opacity", 0) })
+          .transition()
+          .delay(100)
+          .duration(2000)
+          .attr("height",function(d,i) { return height - y_WL(data_2010[i].Wtm); })
+        .attr("y",function(d,i) {return y_WL(data_2010[i].Wtm); });
+        document.getElementById("winner").innerHTML = winner[0];
+        document.getElementById("year").innerHTML = data_2010[0].Year;
+      }  
+      async  function triggerTransition2011(){
+        const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
+        var data_2011 = [];
+       for (var i = 0; i < mlb_data.length; i++) {
+          if (mlb_data[i].Year == 2011) {
+             data_2011.push(mlb_data[i])  
+          }
+        }
+        d3.select(".chart")
+        .selectAll("rect")
+        .data(data_2011)
+        .on("mouseover",function(d,i) {
+          tooltip.style("opacity", 1)
+          .style("left",(d3.event.pageX)+"px")
+          .style("top",(d3.event.pageY)+"px")
+          .html("Team: "+data_2011[i].Tm+" Wins: "+data_2011[i].Wtm);
+        })
+        .on("mouseout",function() { tooltip.style("opacity", 0) })
+          .transition()
+          .delay(100)
+          .duration(2000)
+          .attr("height",function(d,i) { return height - y_WL(data_2011[i].Wtm); })
+        .attr("y",function(d,i) {return y_WL(data_2011[i].Wtm); });
+        document.getElementById("winner").innerHTML = winner[1];
+        document.getElementById("year").innerHTML = data_2011[0].Year;
+      }    
+      async  function triggerTransition2012(){
+        const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
+        var data_2012 = [];
+       for (var i = 0; i < mlb_data.length; i++) {
+          if (mlb_data[i].Year == 2012) {
+             data_2012.push(mlb_data[i])  
+          }
+        }
+        d3.select(".chart")
+        .selectAll("rect")
+        .data(data_2012)
+        .on("mouseover",function(d,i) {
+          tooltip.style("opacity", 1)
+          .style("left",(d3.event.pageX)+"px")
+          .style("top",(d3.event.pageY)+"px")
+          .html("Team: "+data_2012[i].Tm+" Wins: "+data_2012[i].Wtm);
+        })
+        .on("mouseout",function() { tooltip.style("opacity", 0) })
+          .transition()
+          .delay(100)
+          .duration(2000)
+          .attr("height",function(d,i) { return height - y_WL(data_2012[i].Wtm); })
+        .attr("y",function(d,i) {return y_WL(data_2012[i].Wtm); });
+        document.getElementById("winner").innerHTML = winner[2];
+        document.getElementById("year").innerHTML = data_2012[0].Year;
+      }  
+      async  function triggerTransition2013(){
+        const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
+        var data_2013 = [];
+       for (var i = 0; i < mlb_data.length; i++) {
+          if (mlb_data[i].Year == 2013) {
+             data_2013.push(mlb_data[i])  
+          }
+        }
+        d3.select(".chart")
+        .selectAll("rect")
+        .data(data_2013)
+        .on("mouseover",function(d,i) {
+          tooltip.style("opacity", 1)
+          .style("left",(d3.event.pageX)+"px")
+          .style("top",(d3.event.pageY)+"px")
+          .html("Team: "+data_2013[i].Tm+" Wins: "+data_2013[i].Wtm);
+        })
+        .on("mouseout",function() { tooltip.style("opacity", 0) })
+          .transition()
+          .delay(100)
+          .duration(2000)
+          .attr("height",function(d,i) { return height - y_WL(data_2013[i].Wtm); })
+        .attr("y",function(d,i) {return y_WL(data_2013[i].Wtm); });
+        document.getElementById("winner").innerHTML = winner[3];
+        document.getElementById("year").innerHTML = data_2013[0].Year;
+      }    
+      async  function triggerTransition2014(){
+        const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
+        var data_2014 = [];
+       for (var i = 0; i < mlb_data.length; i++) {
+          if (mlb_data[i].Year == 2014) {
+             data_2014.push(mlb_data[i])  
+          }
+        }
+        d3.select(".chart")
+        .selectAll("rect")
+        .data(data_2014)
+        .on("mouseover",function(d,i) {
+          tooltip.style("opacity", 1)
+          .style("left",(d3.event.pageX)+"px")
+          .style("top",(d3.event.pageY)+"px")
+          .html("Team: "+data_2014[i].Tm+" Wins: "+data_2014[i].Wtm);
+        })
+        .on("mouseout",function() { tooltip.style("opacity", 0) })
+          .transition()
+          .delay(100)
+          .duration(2000)
+          .attr("height",function(d,i) { return height - y_WL(data_2014[i].Wtm); })
+        .attr("y",function(d,i) {return y_WL(data_2014[i].Wtm); });
+        document.getElementById("winner").innerHTML = winner[4];
+        document.getElementById("year").innerHTML = data_2014[0].Year;
+      }    
+      async  function triggerTransition2015(){
+        const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
+        var data_2015 = [];
+       for (var i = 0; i < mlb_data.length; i++) {
+          if (mlb_data[i].Year == 2015) {
+             data_2015.push(mlb_data[i])  
+          }
+        }
+        d3.select(".chart")
+        .selectAll("rect")
+        .data(data_2015)
+        .on("mouseover",function(d,i) {
+          tooltip.style("opacity", 1)
+          .style("left",(d3.event.pageX)+"px")
+          .style("top",(d3.event.pageY)+"px")
+          .html("Team: "+data_2015[i].Tm+" Wins: "+data_2015[i].Wtm);
+        })
+        .on("mouseout",function() { tooltip.style("opacity", 0) })
+          .transition()
+          .delay(100)
+          .duration(2000)
+          .attr("height",function(d,i) { return height - y_WL(data_2015[i].Wtm); })
+        .attr("y",function(d,i) {return y_WL(data_2015[i].Wtm); });
+        document.getElementById("winner").innerHTML = winner[5];
+        document.getElementById("year").innerHTML = data_2015[0].Year;
+      }   
+      async  function triggerTransition2016(){
+        const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
+        var data_2016 = [];
+       for (var i = 0; i < mlb_data.length; i++) {
+          if (mlb_data[i].Year == 2016) {
+             data_2016.push(mlb_data[i])  
+          }
+        }
+        d3.select(".chart")
+        .selectAll("rect")
+        .data(data_2016)
+        .on("mouseover",function(d,i) {
+          tooltip.style("opacity", 1)
+          .style("left",(d3.event.pageX)+"px")
+          .style("top",(d3.event.pageY)+"px")
+          .html("Team: "+data_2016[i].Tm+" Wins: "+data_2016[i].Wtm);
+        })
+        .on("mouseout",function() { tooltip.style("opacity", 0) })
+          .transition()
+          .delay(100)
+          .duration(2000)
+          .attr("height",function(d,i) { return height - y_WL(data_2016[i].Wtm); })
+        .attr("y",function(d,i) {return y_WL(data_2016[i].Wtm); });
+        document.getElementById("winner").innerHTML = winner[6];
+        document.getElementById("year").innerHTML = data_2016[0].Year;
+      }    
+      async  function triggerTransition2017(){
+        const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
+        var data_2017 = [];
+       for (var i = 0; i < mlb_data.length; i++) {
+          if (mlb_data[i].Year == 2017) {
+             data_2017.push(mlb_data[i])  
+          }
+        }
+        d3.select(".chart")
+        .selectAll("rect")
+        .data(data_2017)
+        .on("mouseover",function(d,i) {
+          tooltip.style("opacity", 1)
+          .style("left",(d3.event.pageX)+"px")
+          .style("top",(d3.event.pageY)+"px")
+          .html("Team: "+data_2017[i].Tm+" Wins: "+data_2017[i].Wtm);
+        })
+        .on("mouseout",function() { tooltip.style("opacity", 0) })
+          .transition()
+          .delay(100)
+          .duration(2000)
+          .attr("height",function(d,i) { return height - y_WL(data_2017[i].Wtm); })
+        .attr("y",function(d,i) {return y_WL(data_2017[i].Wtm); });
+        document.getElementById("winner").innerHTML = winner[7];
+        document.getElementById("year").innerHTML = data_2017[0].Year;
+      }   
+      async  function triggerTransition2018(){
+        const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
+        var data_2018 = [];
+       for (var i = 0; i < mlb_data.length; i++) {
+          if (mlb_data[i].Year == 2018) {
+             data_2018.push(mlb_data[i])  
+          }
+        }
+        d3.select(".chart")
+        .selectAll("rect")
+        .data(data_2018)
+        .on("mouseover",function(d,i) {
+          tooltip.style("opacity", 1)
+          .style("left",(d3.event.pageX)+"px")
+          .style("top",(d3.event.pageY)+"px")
+          .html("Team: "+data_2018[i].Tm+" Wins: "+data_2018[i].Wtm);
+        })
+        .on("mouseout",function() { tooltip.style("opacity", 0) })
+          .transition()
+          .delay(100)
+          .duration(2000)
+          .attr("height",function(d,i) { return height - y_WL(data_2018[i].Wtm); })
+        .attr("y",function(d,i) {return y_WL(data_2018[i].Wtm); });
+        document.getElementById("winner").innerHTML = winner[8];
+        document.getElementById("year").innerHTML = data_2018[0].Year;
+      }   
+      async  function triggerTransition2019(){
+        const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-2010to2019-final.csv');
+        var data_2019 = [];
+       for (var i = 0; i < mlb_data.length; i++) {
+          if (mlb_data[i].Year == 2019) {
+             data_2019.push(mlb_data[i])  
+          }
+        }
+        d3.select(".chart")
+        .selectAll("rect")
+        .data(data_2019)
+        .on("mouseover",function(d,i) {
+          tooltip.style("opacity", 1)
+          .style("left",(d3.event.pageX)+"px")
+          .style("top",(d3.event.pageY)+"px")
+          .html("Team: "+data_2019[i].Tm+" Wins: "+data_2019[i].Wtm);
+        })
+        .on("mouseout",function() { tooltip.style("opacity", 0) })
+          .transition()
+          .delay(100)
+          .duration(2000)
+          .attr("height",function(d,i) { return height - y_WL(data_2019[i].Wtm); })
+        .attr("y",function(d,i) {return y_WL(data_2019[i].Wtm); });
+        document.getElementById("winner").innerHTML = winner[9];
+        document.getElementById("year").innerHTML = data_2019[0].Year;
+      }    
+        
+   </script>  
+</html>
