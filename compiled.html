@@ -45,7 +45,7 @@
         .attr("height",y_compiled(1))
         .attr("x",function(d,i) { return x_compiled(i); })
         .attr("y",y_compiled(0))
-        .style("fill",function(d,i) {return color_compiled[i];})
+        .style("fill",function(d,i) {return color_compiled[d];})
         .on("mouseover",function(d,i) {
           tooltip.style("opacity", 1)
           .style("left",(d3.event.pageX)+"px")
