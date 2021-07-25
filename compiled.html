@@ -24,7 +24,7 @@
       var width = 1000, height = 600;
       var x_compiled = d3.scaleLinear().domain([0,10]).range([0,width])
       var y_compiled = d3.scaleLinear().domain([125,250]).range([height,0])
-      var color_compiled  = d3.scaleLinear().domain([0,1]).range(["white","blue"])
+      var color_compiled  = d3.scaleLinear().domain([125,250]).range(["white","blue"])
       var tooltip = d3.select("#tooltip"); 
       
       async function main() {
