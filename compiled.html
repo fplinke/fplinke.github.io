@@ -25,11 +25,8 @@
       var x_compiled = d3.scaleLinear().domain([0,10]).range([0,width])
       var y_compiled = d3.scaleLinear().domain([125,250]).range([height,0])
       var color_compiled  = d3.scaleLinear().domain([0,1]).range(["white","blue"])
-      var tooltip = d3.select("#tooltip");
-      var cdomain = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29];  
+      var tooltip = d3.select("#tooltip"); 
       
-        
-        
       async function main() {
        const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-compiled.csv');
        var data_compiled = [];
@@ -53,14 +50,14 @@
           tooltip.style("opacity", 1)
           .style("left",(d3.event.pageX)+"px")
           .style("top",(d3.event.pageY)+"px")
-          .html("Team: "+mlb_data[i].Tm);
+          .html("HRs: "+data_compiled[i].HR);
         })
         .on("mouseout",function() { tooltip.style("opacity", 0) })
         .transition()
           .delay(100)
           .duration(2000)
-        .attr("height",function(d,i) { return height - y_compiled(mlb_data[i].HR); })
-        .attr("y",function(d,i) {return y_compiled(mlb_data[i].HR); });
+        .attr("height",function(d,i) { return height - y_compiled(data_compiled[i].HR); })
+        .attr("y",function(d,i) {return y_compiled(data_compiled[i].HR); });
         document.getElementById("winner").innerHTML = winner[10];
         document.getElementById("year").innerHTML = "Please Choose a year below!";
       }
