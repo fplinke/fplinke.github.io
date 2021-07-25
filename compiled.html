@@ -44,9 +44,9 @@
         .enter()
         .append("rect")
         .attr("width",100)
-        .attr("height",y_compiled(1))
+        .attr("height",y_compiled(250))
         .attr("x",function(d,i) { return x_compiled(i); })
-        .attr("y",y_compiled(0))
+        .attr("y",y_compiled(125))
         .style("fill",function(d,i) {return color_compiled(i);})
         .on("mouseover",function(d,i) {
           tooltip.style("opacity", 1)
