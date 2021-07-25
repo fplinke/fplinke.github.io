@@ -62,7 +62,9 @@
         .attr("y",function(d,i) {return y_compiled(data_compiled[i].HR); });
         document.getElementById("winner").innerHTML = winner[10];
         document.getElementById("year").innerHTML = "Please Choose a year below!";
-         
+     
+         var x_compiled = d3.scaleLinear().domain([0,10]).range([0,width])
+         var y_compiled = d3.scaleLinear().domain([0.225,0.275]).range([height,0])
      d3.select(".BAchart")
         .selectAll("rect")
         .data(data_compiled)
@@ -88,6 +90,8 @@
         document.getElementById("winner").innerHTML = winner[10];
         document.getElementById("year").innerHTML = "Please Choose a year below!";
          
+         var x_compiled = d3.scaleLinear().domain([0,10]).range([0,width])
+         var y_compiled = d3.scaleLinear().domain([0.375,0.450]).range([height,0])
      d3.select(".SLGchart")
         .selectAll("rect")
         .data(data_compiled)
