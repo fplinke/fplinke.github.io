@@ -34,9 +34,7 @@
        const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-compiled.csv');
        var data_compiled = [];
        for (var i = 0; i < mlb_data.length; i++) {
-          if (mlb_data[i].Year == 2014) {
-             data_2014.push(mlb_data[i])  
-          }
+             data_compiled.push(mlb_data[i])  
         }
       
       d3.select(".chart")
@@ -53,14 +51,14 @@
           tooltip.style("opacity", 1)
           .style("left",(d3.event.pageX)+"px")
           .style("top",(d3.event.pageY)+"px")
-          .html("Team: "+data_2014[i].Tm);
+          .html("Team: "+mlb_data[i].Tm);
         })
         .on("mouseout",function() { tooltip.style("opacity", 0) })
         .transition()
           .delay(100)
           .duration(2000)
         .attr("height",function(d,i) { return height - y_compiled(mlb_data[i].HR); })
-        .attr("y",function(d,i) {return y_compiled(data_2010[i].HR); });
+        .attr("y",function(d,i) {return y_compiled(mlb_data[i].HR); });
         document.getElementById("winner").innerHTML = winner[10];
         document.getElementById("year").innerHTML = "Please Choose a year below!";
       }
