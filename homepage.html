@@ -98,6 +98,10 @@
         .style("stroke", "black")
         .style("stroke-width",1)
         .style("fill","grey");
+         d3.select(".HRchart").append('text').text('This is some information about whatever')
+                .attr('x', 300)
+                .attr('y', 100)
+                .attr('fill', 'black')
        
          d3.select(".BAchart").append("g")
          .attr("transform", "translate(0,550)")
