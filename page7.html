@@ -40,9 +40,20 @@
       var color_SLG  = d3.scaleLinear().domain([0,9]).range(["rgb(35,155,86)","rgb(35,155,86)"])
       var tooltip = d3.select("#tooltip"); 
       
-      var line = d3.line()
+      
+      
+      async function main() {
+       const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-compiled.csv');
+       var data_compiled = [];
+       for (var i = 0; i < 10; i++) {
+             data_compiled.push(mlb_data[i])  
+        }
+        console.log(mlb_data)
+         console.log(data_compiled)
+         
+        var line = d3.line()
     .x(function(d, i) { return x_compiled(i); }) // set the x values for the line generator
-    .y(function(d) { return yScale(d.HR); }) // set the y values for the line generator 
+    .y(function(d) { return y_compiled(d.HR); }) // set the y values for the line generator 
       
       var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -57,18 +68,7 @@
       
       svg.append("g")
     .attr("class", "y axis")
-    .call(d3.axisLeft(yScale)); // Create an axis component with d3.axisLeft
-      
-      
-      async function main() {
-       const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-compiled.csv');
-       var data_compiled = [];
-       for (var i = 0; i < 10; i++) {
-             data_compiled.push(mlb_data[i])  
-        }
-        console.log(mlb_data)
-         console.log(data_compiled)
-         
+    .call(d3.axisLeft(yScale)); // Create an axis component with d3.axisLeft 
     svg.append("path")
     .datum(data_compiled) // 10. Binds data to the line 
     .attr("class", "line") // Assign a class for styling 
