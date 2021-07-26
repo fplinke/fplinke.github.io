@@ -102,6 +102,14 @@
          .style("stroke", "red")
          .style("stroke-width", 2)
          .style("stroke-dasharray", 5);
+         d3.select(".HRchart").append("line")
+         .attr("x1",800)
+         .attr("y1",150)
+         .attr("x2",900)
+         .attr("y2",160)
+         .style("stroke", "red")
+         .style("stroke-width", 2)
+         .style("stroke-dasharray", 5);
        
          d3.select(".BAchart").append("g")
          .attr("transform", "translate(0,550)")
