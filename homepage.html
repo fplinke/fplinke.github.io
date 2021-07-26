@@ -34,7 +34,7 @@
       <p style="font-family:Merriweather; font-size:20px; "> WELCOME! This website can be used to explore offensive statistics in the MLB from the last decade. First, data is explored at a high level and examined for year over year trends...</p>
       <p style="font-family:Merriweather; font-style:italic; font-size:20px;"> Hover over colors in graphs below to see years and statistics!</p>
       <p style="color:rgb(211,84,0); font-size:35px;">Average MLB Home Runs per Team (2010 - 2019)</p>
-      <svg class="HRchart" width = window.innerWidth + margin.left + margin.right height = window.innerHeight - margin.top - margin.bottom style="border:solid; background-color:white; stroke-width:5" ></svg>
+      <svg class="HRchart" width = width + margin.left + margin.right height = width + margin.top margin.bottom style="border:solid; background-color:white; stroke-width:5" ></svg>
       <p style="color:rgb(175,122,197); font-size:35px;">Average MLB Team Batting Average (2010 - 2019)</p>
       <svg class="BAchart" width = 1000 height = 600 style="border:solid; background-color:white; stroke-width:5" viewBox="0 0 1000 600"></svg>
       <p style="color:rgb(35,155,86); font-size:35px;">Average MLB Team Slugging Percentage (2010 - 2019)</p>
@@ -48,8 +48,8 @@
    <script>
       
       var margin = {top: 50, right: 50, bottom: 50, left: 50}
-         , width = window.innerWidth - margin.left - margin.right // Use the window's width 
-         , height = window.innerHeight - margin.top - margin.bottom; // Use the window's height
+      var width = window.innerWidth - margin.left - margin.right // Use the window's width 
+      var height = window.innerHeight - margin.top - margin.bottom; // Use the window's height
       var x_HR = d3.scaleLinear().domain([2010,2019]).range([0,width])
       var y_HR = d3.scaleLinear().domain([125,250]).range([height,0])
       var x_BA = d3.scaleLinear().domain([0,10]).range([0,width])
