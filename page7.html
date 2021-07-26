@@ -29,7 +29,7 @@
    </body>
    <script>
       var width = 1000, height = 600;
-      var x_compiled = d3.scaleLinear().domain([0,10]).range([0,width])
+      var x_compiled = d3.scaleLinear().domain([0,9]).range([0,width])
       var y_compiled = d3.scaleLinear().domain([125,250]).range([height,0])
       var color_compiled  = d3.scaleLinear().domain([0,9]).range(["rgb(211,84,0)","rgb(211,84,0)"])
       var x_BA = d3.scaleLinear().domain([0,10]).range([0,width])
@@ -39,6 +39,25 @@
       var y_SLG = d3.scaleLinear().domain([.35,.45]).range([height,0])
       var color_SLG  = d3.scaleLinear().domain([0,9]).range(["rgb(35,155,86)","rgb(35,155,86)"])
       var tooltip = d3.select("#tooltip"); 
+      
+      var line = d3.line()
+    .x(function(d, i) { return x_compiled(i); }) // set the x values for the line generator
+    .y(function(d) { return yScale(d.HR); }) // set the y values for the line generator 
+      
+      var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      
+      svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(xScale)); // Create an axis component with d3.axisBottom
+      
+      svg.append("g")
+    .attr("class", "y axis")
+    .call(d3.axisLeft(yScale)); // Create an axis component with d3.axisLeft
       
       
       async function main() {
@@ -50,16 +69,10 @@
         console.log(mlb_data)
          console.log(data_compiled)
          
-     d3.select(".HRchart")
-         .append("path")
-        .data(data_compiled)
-        .attr("fill", "none")
-      .attr("stroke", "steelblue")
-      .attr("stroke-width", 1.5)
-      .attr("d", d3.line()
-        .x(function(d,i) { return x_compiled(i) })
-        .y(function(d,i) { return y_compiled(data_compiled[i].HR) })
-        )
+    svg.append("path")
+    .datum(data_compiled) // 10. Binds data to the line 
+    .attr("class", "line") // Assign a class for styling 
+    .attr("d", line); // 11. Calls the line generator 
        
          
  
