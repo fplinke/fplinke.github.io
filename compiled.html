@@ -14,7 +14,6 @@ g<!DOCTYPE html>
    <body onload='main()' style="text-align:center; background-color:rgb(230,230,230);">
       <h1 style="font-family:Merriweather;">Major League Baseball (MLB) Statistics from the Last Decade</h1>
       <p style="font-family:Merriweather;"> This website can be used to explore offensive statistics in the MLB from the last decade. Specifically, data is first explored at a high level and examined for year over year trends!</p>
-      <p style="color:black; font-size:25px; font-family:Monaco;">Year: <span id="year"></span></p>
       <p style="color:rgb(211,84,0); font-size:25px;">Average number of home runs per team per year:</p>
       <svg class="HRchart" width = 1000 height = 600 style="border:solid;" viewBox="0 0 1000 600" ></svg>
       <svg class="BAchart" width = 1000 height = 600 style="border:solid;" viewBox="0 0 1000 600"></svg>
@@ -26,7 +25,7 @@ g<!DOCTYPE html>
       var width = 1000, height = 600;
       var x_compiled = d3.scaleLinear().domain([0,10]).range([0,width])
       var y_compiled = d3.scaleLinear().domain([125,250]).range([height,0])
-      var color_compiled  = d3.scaleLinear().domain([0,9]).range([rgb(211,84,0),rgb(211,84,0)])
+      var color_compiled  = d3.scaleLinear().domain([0,9]).range(["rgb(211,84,0)","rgb(211,84,0)"])
       var x_BA = d3.scaleLinear().domain([0,30]).range([0,width])
       var y_BA = d3.scaleLinear().domain([.2,.3]).range([height,0])
       var x_SLG = d3.scaleLinear().domain([0,30]).range([0,width])
