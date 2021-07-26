@@ -76,7 +76,7 @@
         
         d3.select(".HRchart").append("g")
          .attr("class", "x axis")
-         .attr("transform", "translate(0," + height + "+margin.top)")
+         .attr("transform", "translate(0," + height + ")")
          .call(d3.axisBottom(x_HR)); // Create an axis component with d3.axisBottom
       
          d3.select(".HRchart").append("g")
