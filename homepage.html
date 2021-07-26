@@ -63,6 +63,14 @@
        var line_HR = d3.line()
          .x(function(d, i) { return x_HR(d.Year); }) 
          .y(function(d) { return y_HR(d.HR); })
+       var line_BA = d3.line()
+         .x(function(d, i) { return x_BA(d.Year); }) 
+         .y(function(d) { return y_BA(d.BA); })
+       var line_SLG = d3.line()
+         .x(function(d, i) { return x_SLG(d.Year); }) 
+         .y(function(d) { return y_SLG(d.SLG); })
+     
+     
      
       
       async function main() {
@@ -82,6 +90,29 @@
           .datum(data_compiled) 
           .attr("class", "line_HR") 
           .attr("d", line_HR);  
+         
+         d3.select(".BAchart").append("g")
+         .attr("transform", "translate(0,550)")
+         .call(d3.axisBottom(x_BA));
+        d3.select(".BAchart").append("g")
+          .attr("transform", "translate(50,0)")
+          .call(d3.axisLeft(y_BA)); 
+         d3.select(".BAchart").append("path")
+          .datum(data_compiled) 
+          .attr("class", "line_BA") 
+          .attr("d", line_HR);  
+       
+         d3.select(".SLGchart").append("g")
+         .attr("transform", "translate(0,550)")
+         .call(d3.axisBottom(x_SLG));
+        d3.select(".SLGchart").append("g")
+          .attr("transform", "translate(50,0)")
+          .call(d3.axisLeft(y_SLG)); 
+         d3.select(".SLGchart").append("path")
+          .datum(data_compiled) 
+          .attr("class", "line_SLG") 
+          .attr("d", line_SLG);  
+       
        
          
  
