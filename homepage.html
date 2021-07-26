@@ -93,13 +93,13 @@
          d3.select(".HRchart").append('text').text('The line is trending upwards from 2010 to 2019! More home runs are being hit!')
                 .attr('x', 100)
                 .attr('y', 150)
-                .attr('fill', rgb(230,230,230));
+                .attr('fill', "grey");
          d3.select(".HRchart").append("line")
          .attr("x1",300)
          .attr("y1",175)
          .attr("x2",75)
          .attr("y2",425)
-         .style("stroke", rgb(230,230,230))
+         .style("stroke", "grey")
          .style("stroke-width", 2)
          .style("stroke-dasharray", 5);
          d3.select(".HRchart").append("line")
@@ -107,7 +107,7 @@
          .attr("y1",150)
          .attr("x2",900)
          .attr("y2",160)
-         .style("stroke", rgb(230,230,230))
+         .style("stroke", "grey")
          .style("stroke-width", 2)
          .style("stroke-dasharray", 5);
        
