@@ -71,19 +71,18 @@
          .x(function(d, i) { return x_HR(d.Year); }) // set the x values for the line generator
          .y(function(d) { return y_HR(d.HR); }) // set the y values for the line generator 
      
-        
         d3.select(".HRchart").append("g")
          .attr("transform", "translate(0,550)")
-         .call(d3.axisBottom(x_HR))
-         .attr("transform", "translate(50,0)")
-         .call(d3.axisLeft(y_HR))
-         .append("path")
+         .call(d3.axisBottom(x_HR));
+        
+         d3.select(".HRchart").append("g")
+           .attr("transform", "translate(50,0)")
+           .call(d3.axisLeft(y_HR)); 
+         
+         d3.select(".HRchart").append("path")
           .datum(data_compiled) 
           .attr("class", "line_HR") 
           .attr("d", line_HR);  
-         
-
-      
        
          
  
