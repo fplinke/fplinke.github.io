@@ -65,16 +65,16 @@
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
       
-      d3.select(".BAchart").append("g")
+      d3.select(".HRchart").append("g")
     .attr("class", "x axis")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x_compiled)); // Create an axis component with d3.axisBottom
       
-      d3.select(".BAchart").append("g")
+      d3.select(".HRchart").append("g")
     .attr("class", "y axis")
     .call(d3.axisLeft(y_compiled)); // Create an axis component with d3.axisLeft 
          
-    d3.select(".BAchart").append("path")
+    d3.select(".HRchart").append("path")
     .datum(data_compiled) // 10. Binds data to the line 
     .attr("class", "line") // Assign a class for styling 
     .attr("d", line); // 11. Calls the line generator 
