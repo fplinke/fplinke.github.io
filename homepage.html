@@ -80,7 +80,6 @@
              data_compiled.push(mlb_data[i])  
         }
         
-     <div id="HR">
         d3.select(".HRchart").append("g")
          .attr("transform", "translate(0,550)")
          .call(d3.axisBottom(x_HR));
@@ -90,8 +89,7 @@
          d3.select(".HRchart").append("path")
           .datum(data_compiled) 
           .attr("class", "line_HR") 
-          .attr("d", line_HR);  
-      </div>   
+          .attr("d", line_HR);     
        
          d3.select(".BAchart").append("g")
          .attr("transform", "translate(0,550)")
