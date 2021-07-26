@@ -75,12 +75,12 @@
         
         d3.select(".HRchart").append("g")
          .attr("class", "x axis")
-         .attr("transform", "translate(0," + height + margin.top")")
+         .attr("transform", "translate(0,950)")
          .call(d3.axisBottom(x_HR)); // Create an axis component with d3.axisBottom
       
          d3.select(".HRchart").append("g")
            .attr("class", "y axis")
-        
+           .attr("transform", "translate(50,0)")
            .call(d3.axisLeft(y_HR)); // Create an axis component with d3.axisLeft 
          
          d3.select(".HRchart").append("path")
