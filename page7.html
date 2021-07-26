@@ -49,32 +49,18 @@
         }
         console.log(mlb_data)
          console.log(data_compiled)
-      
-      d3.select(".HRchart")
+         
+     d3.select(".HRchart")
         .selectAll("rect")
         .data(data_compiled)
         .enter()
-        .append("rect")
-        .style("stroke", "black")
-        .style("stroke-width",3)
-        .attr("width",100)
-        .attr("height",y_compiled(250))
-        .attr("x",function(d,i) { return x_compiled(i); })
-        .attr("y",y_compiled(125))
-        .style("fill",function(d,i) {return color_compiled(i);})
-        .on("mouseover",function(d,i) {
-          tooltip.style("opacity", 1)
-          .style("left",(d3.event.pageX)+"px")
-          .style("top",(d3.event.pageY)+"px")
-          .html("Year: "+data_compiled[i].Year+" HRs: "+data_compiled[i].HR);
-        })
-        .on("mouseout",function() { tooltip.style("opacity", 0) })
-        .transition()
-          .delay(100)
-          .duration(2000)
-        .attr("height",function(d,i) { return height - y_compiled(data_compiled[i].HR); })
-        .attr("y",function(d,i) {return y_compiled(data_compiled[i].HR); })
-         .call(d3.axisLeft(y_compiled));
+        .attr("fill", "none")
+      .attr("stroke", "steelblue")
+      .attr("stroke-width", 1.5)
+      .attr("d", d3.line()
+        .x_compiled(function(d) { return x(d.Year) })
+        .y_compiled(function(d) { return y(d.HR) });
+       
          
  
         
