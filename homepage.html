@@ -75,6 +75,7 @@
         d3.select(".HRchart").append("g")
          .attr("transform", "translate(0,550)")
          .call(d3.axisBottom(x_HR)); // Create an axis component with d3.axisBottom
+         .tickFormat(d3.format(""))
       
          d3.select(".HRchart").append("g")
            .attr("transform", "translate(50,0)")
@@ -84,7 +85,6 @@
           .datum(data_compiled) // 10. Binds data to the line 
           .attr("class", "line_HR") // Assign a class for styling 
           .attr("d", line_HR); // 11. Calls the line generator 
-          .tickFormat(d3.format(""))
          
 
       
