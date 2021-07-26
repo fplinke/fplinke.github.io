@@ -11,22 +11,21 @@
    }
 </style>
 <style type="text/css">
-.line_HR {
-    fill: None;
-    stroke: rgb(211,84,0);
-    stroke-width: 3;
-}
-.line_BA {
-    fill: None;
-    stroke: rgb(175,122,197);
-    stroke-width: 3;
-}
-.line_SLG {
-    fill: None;
-    stroke: rgb(35,155,86);
-    stroke-width: 3;
-}   
-
+   .line_HR {
+   fill: None;
+   stroke: rgb(211,84,0);
+   stroke-width: 3;
+   }
+   .line_BA {
+   fill: None;
+   stroke: rgb(175,122,197);
+   stroke-width: 3;
+   }
+   .line_SLG {
+   fill: None;
+   stroke: rgb(35,155,86);
+   stroke-width: 3;
+   }   
 </style>
 <html>
    <body onload='main()' style="text-align:left; background-color:rgb(230,230,230);">
@@ -35,38 +34,43 @@
       <p style="font-family:Merriweather; font-style:italic; font-size:35px;">Home Runs (HR)</p>
       <p style="font-family:Merriweather; font-style:italic; font-size:25px;">Definition: In baseball, a home run is scored when the ball is hit in such a way that the batter is able to circle the bases and reach home safely in one play without any errors being committed by the defensive team in the process.</p>
       <p style="color:rgb(211,84,0); font-size:35px;">Average MLB Home Runs per Team (2010 - 2019)</p>
-      <svg class="HRchart" width = 1000 height = 600 style="border:solid; background-color:white; stroke-width:5" >  <defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="7" fill="grey" 
-    refX="0" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" />
-    </marker>
-  </defs></svg>
+      <svg class="HRchart" width = 1000 height = 600 style="border:solid; background-color:white; stroke-width:5" >
+         <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" fill="grey" 
+               refX="0" refY="3.5" orient="auto">
+               <polygon points="0 0, 10 3.5, 0 7" />
+            </marker>
+         </defs>
+      </svg>
       <p style="font-family:Merriweather; font-style:italic; font-size:35px;">Batting Average (BA)</p>
       <p style="font-family:Merriweather; font-style:italic; font-size:25px;">Definition: In baseball, the batting average is the number of hits divided by at bats. Greater batting average indicates more hits.</p>
       <p style="color:rgb(175,122,197); font-size:35px;">Average MLB Team Batting Average (2010 - 2019)</p>
-      <svg class="BAchart" width = 1000 height = 600 style="border:solid; background-color:white; stroke-width:5" viewBox="0 0 1000 600"><defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="7" fill="grey" 
-    refX="0" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" />
-    </marker>
-  </defs></svg>
-        <p style="font-family:Merriweather; font-style:italic; font-size:35px;">Slugging Percentage (SLG)</p>
+      <svg class="BAchart" width = 1000 height = 600 style="border:solid; background-color:white; stroke-width:5" viewBox="0 0 1000 600">
+         <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" fill="grey" 
+               refX="0" refY="3.5" orient="auto">
+               <polygon points="0 0, 10 3.5, 0 7" />
+            </marker>
+         </defs>
+      </svg>
+      <p style="font-family:Merriweather; font-style:italic; font-size:35px;">Slugging Percentage (SLG)</p>
       <p style="font-family:Merriweather; font-style:italic; font-size:25px;">Definition: In baseball, slugging percentage is a measure of the batting productivity of a hitter. It is calculated as total bases divided by at bats. Greater slugging percentage indicates more "multiple-base" hits.</p>
       <p style="color:rgb(35,155,86); font-size:35px;">Average MLB Team Slugging Percentage (2010 - 2019)</p>
-      <svg class="SLGchart" width = 1000 height = 600 style="border:solid; background-color:white; stroke-width:5" viewBox="0 0 1000 600"><defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="7" fill="grey" 
-    refX="0" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" />
-    </marker>
-  </defs></svg>
-      <p style="font-size:25px;">Based on these graphs, we can conclude that batters are hitting for more bases, but not necessary higher batting averages over the last decade! Batters are hitting with more power!</p> 
+      <svg class="SLGchart" width = 1000 height = 600 style="border:solid; background-color:white; stroke-width:5" viewBox="0 0 1000 600">
+         <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" fill="grey" 
+               refX="0" refY="3.5" orient="auto">
+               <polygon points="0 0, 10 3.5, 0 7" />
+            </marker>
+         </defs>
+      </svg>
+      <p style="font-size:25px;">Based on these graphs, we can conclude that batters are hitting for more bases, but not necessary higher batting averages over the last decade! Batters are hitting with more power!</p>
       <p style="font-size:25px;">Now, let's take a look at how individual teams have performed each year. Please click here: 
          <button onclick="location.href='https://fplinke.github.io/homeruns.html';" style="font-size:18px;">Detailed Team Statistics!</button>
       </p>
       <div id="tooltip"></div>
    </body>
    <script>
-      
       var margin = {top: 50, right: 50, bottom: 50, left: 50}
       var width = 1000 - margin.left - margin.right;
       var height = 600 - margin.top - margin.bottom; 
