@@ -93,7 +93,7 @@
          .y(function(d) { return y_SLG(d.SLG); }) 
       
       async function main() {
-       const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-compiled-6.csv');
+       const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-compiled.csv');
        var data_compiled = [];
        for (var i = 0; i < 10; i++) {
              data_compiled.push(mlb_data[i])  
