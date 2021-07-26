@@ -51,8 +51,8 @@
          console.log(data_compiled)
          
      d3.select(".HRchart")
+         .append(".HRchart")
         .data(data_compiled)
-        .enter()
         .attr("fill", "none")
       .attr("stroke", "steelblue")
       .attr("stroke-width", 1.5)
