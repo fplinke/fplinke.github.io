@@ -51,15 +51,15 @@
          console.log(data_compiled)
          
      d3.select(".HRchart")
-         .append(".HRchart")
-        .data(data_compiled)
+         .append("path")
+        .datam(data_compiled)
         .attr("fill", "none")
       .attr("stroke", "steelblue")
       .attr("stroke-width", 1.5)
       .attr("d", d3.line()
-        .x_compiled(function(d) { return x(d.Year) })
-        .y_compiled(function(d) { return y(d.HR) })
-            );
+        .x_compiled(function(d,i) { return x(data_compiled[i].Year) })
+        .y_compiled(function(d,i) { return y(data_compiled[i].HR) })
+        )
        
          
  
