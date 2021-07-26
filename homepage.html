@@ -43,6 +43,12 @@
          <button onclick="location.href='https://fplinke.github.io/wins.html';" style="font-size:18px;">Detailed Statistics!</button>
       </p>
       <div id="tooltip"></div>
+            <p>  
+         Click to view different years!
+         <button onclick="triggerTransitionHR()">Home Runs</button>
+         <button onclick="triggerTransitionBA()">Batting Average</button>
+         <button onclick="triggerTransitionSLG()">Slugging Percentage</button>
+      </p>
 
    </body>
    <script>
@@ -108,6 +114,23 @@
           .attr("class", "line_SLG") 
           .attr("d", line_SLG);  
       }
+      async function triggerTransitionBA() {
+       const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-compiled-6.csv');
+       var data_compiled = [];
+       for (var i = 0; i < 10; i++) {
+             data_compiled.push(mlb_data[i])  
+        }
+         
+        d3.select(".HRchart").append("g")
+         .attr("transform", "translate(0,550)")
+         .call(d3.axisBottom(x_BA));
+        d3.select(".HRchart").append("g")
+          .attr("transform", "translate(50,0)")
+          .call(d3.axisLeft(y_BA)); 
+         d3.select(".HRchart").append("path")
+          .datum(data_compiled) 
+          .attr("class", "line_BA") 
+          .attr("d", line_BA);  
         
    </script>  
 </html>
