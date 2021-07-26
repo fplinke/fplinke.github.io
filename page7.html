@@ -40,9 +40,6 @@
       var color_SLG  = d3.scaleLinear().domain([0,9]).range(["rgb(35,155,86)","rgb(35,155,86)"])
       var tooltip = d3.select("#tooltip"); 
       
-      var x_axis = d3.axisBottom()
-                   .scale(scale);
-
       
       async function main() {
        const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-compiled.csv');
@@ -76,13 +73,10 @@
           .delay(100)
           .duration(2000)
         .attr("height",function(d,i) { return height - y_compiled(data_compiled[i].HR); })
-        .attr("y",function(d,i) {return y_compiled(data_compiled[i].HR); });
+        .attr("y",function(d,i) {return y_compiled(data_compiled[i].HR); })
+         .call(d3.axisLeft(y_compiled));
          
-         d3.select("body")
-                .append("svg")
-                .attr("width", width)
-                .attr("height", height)
-         .call(x_axis);
+ 
         
          
      d3.select(".BAchart")
