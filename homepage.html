@@ -90,7 +90,7 @@
           .attr("class", "line_HR") 
           .attr("d", line_HR);
          d3.select(".HRchart").append('text').text('Note that the line has a trend that is generally increasing from 2010 to 2019! More home runs are being hit!')
-                .attr('x', 200)
+                .attr('x', 100)
                 .attr('y', 150)
                 .attr('fill', 'red')
        
@@ -103,7 +103,11 @@
          d3.select(".BAchart").append("path")
           .datum(data_compiled) 
           .attr("class", "line_BA") 
-          .attr("d", line_BA);  
+          .attr("d", line_BA); 
+         d3.select(".BAchart").append('text').text('Note that the line has a trend that is slightly decreasing from 2010 to 2019! Batting averages are dropping slightly!')
+                .attr('x', 100)
+                .attr('y', 350)
+                .attr('fill', 'red')
        
          d3.select(".SLGchart").append("g")
          .attr("transform", "translate(0,550)")
@@ -115,6 +119,10 @@
           .datum(data_compiled) 
           .attr("class", "line_SLG") 
           .attr("d", line_SLG);  
+         d3.select(".SLGchart").append('text').text('Note that the line has a trend that is generally increasing from 2010 to 2019! Batters are slugging a higer percentage!')
+                .attr('x', 100)
+                .attr('y', 350)
+                .attr('fill', 'red')
       } 
    </script>  
 </html>
