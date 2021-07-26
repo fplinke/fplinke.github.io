@@ -11,7 +11,7 @@
    }
 </style>
 <style type="text/css">
-.line {
+.line_HR {
     fill: None;
     stroke: rgb(211,84,0);
     stroke-width: 3;
@@ -71,7 +71,7 @@
          
     d3.select(".HRchart").append("path")
     .datum(data_compiled) // 10. Binds data to the line 
-    .attr("class", "line") // Assign a class for styling 
+    .attr("class", "line_HR") // Assign a class for styling 
     .attr("d", line_HR); // 11. Calls the line generator 
          
 
