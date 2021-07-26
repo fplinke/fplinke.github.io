@@ -64,14 +64,7 @@
       var y_SLG = d3.scaleLinear().domain([.35,.45]).range([height+margin.bottom,margin.top]);
       var tooltip = d3.select("#tooltip");
       
-      async function main() {
-       const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-compiled-6.csv');
-       var data_compiled = [];
-       for (var i = 0; i < 10; i++) {
-             data_compiled.push(mlb_data[i])  
-        }
-        
-        var line_HR = d3.line()
+       var line_HR = d3.line()
          .x(function(d, i) { return x_HR(d.Year); }) 
          .y(function(d) { return y_HR(d.HR); })
        var line_BA = d3.line()
@@ -80,6 +73,14 @@
        var line_SLG = d3.line()
          .x(function(d, i) { return x_SLG(d.Year); }) 
          .y(function(d) { return y_SLG(d.SLG); }) 
+      
+      async function main() {
+       const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-compiled-6.csv');
+       var data_compiled = [];
+       for (var i = 0; i < 10; i++) {
+             data_compiled.push(mlb_data[i])  
+        }
+        
      
         d3.select(".HRchart").append("g")
          .attr("transform", "translate(0,550)")
