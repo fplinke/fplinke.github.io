@@ -93,7 +93,14 @@
          d3.select(".HRchart").append('text').text('The line is trending upwards from 2010 to 2019! More home runs are being hit!')
                 .attr('x', 100)
                 .attr('y', 150)
-                .attr('fill', 'red')
+                .attr('fill', 'red');
+         d3.select(".HRchart").append("line")
+         .attr("x1",100)
+         .attr("y1",200)
+         .attr("x2",150)
+         .attr("y2",400)
+         .style("stroke", "red")
+         .style("stroke-width", 2);
        
          d3.select(".BAchart").append("g")
          .attr("transform", "translate(0,550)")
@@ -109,6 +116,7 @@
                 .attr('x', 75)
                 .attr('y', 375)
                 .attr('fill', 'red')
+         
        
          d3.select(".SLGchart").append("g")
          .attr("transform", "translate(0,550)")
