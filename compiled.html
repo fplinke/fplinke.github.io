@@ -26,7 +26,7 @@
       var width = 1000, height = 600;
       var x_compiled = d3.scaleLinear().domain([0,10]).range([0,width])
       var y_compiled = d3.scaleLinear().domain([125,250]).range([height,0])
-      var color_compiled  = d3.scaleLinear().domain([0,325]).range(["white","orange"])
+      var color_compiled  = d3.scaleLinear().domain([0,9]).range(["white","orange"])
       var x_BA = d3.scaleLinear().domain([0,30]).range([0,width])
       var y_BA = d3.scaleLinear().domain([.2,.3]).range([height,0])
       var x_SLG = d3.scaleLinear().domain([0,30]).range([0,width])
@@ -51,7 +51,7 @@
         .attr("height",y_compiled(250))
         .attr("x",function(d,i) { return x_compiled(i); })
         .attr("y",y_compiled(125))
-        .style("fill",function(d,i) {return color_compiled(d);})
+        .style("fill",function(d,i) {return color_compiled(i);})
         .on("mouseover",function(d,i) {
           tooltip.style("opacity", 1)
           .style("left",(d3.event.pageX)+"px")
