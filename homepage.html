@@ -70,7 +70,7 @@
       
       d3.select(".HRchart").append("g")
     .attr("class", "y axis")
-    .call(d3.axisLeft(y_compiled)); // Create an axis component with d3.axisLeft 
+    .call(d3.axisRight(y_compiled)); // Create an axis component with d3.axisLeft 
          
     d3.select(".HRchart").append("path")
     .datum(data_compiled) // 10. Binds data to the line 
