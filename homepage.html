@@ -50,7 +50,7 @@
       var margin = {top: 50, right: 50, bottom: 50, left: 50}
       var width = 1000 - margin.left - margin.right // Use the window's width 
       var height = 600 - margin.top - margin.bottom; // Use the window's height
-      var x_HR = d3.scaleTime().domain([2010,2019]).range([margin.left,width+margin.right])
+      var x_HR = d3.scaleLinear().domain([2010,2019]).range([margin.left,width+margin.right])
       var y_HR = d3.scaleLinear().domain([125,250]).range([height+margin.bottom,margin.top])
       var x_BA = d3.scaleLinear().domain([0,10]).range([0,width])
       var y_BA = d3.scaleLinear().domain([.24,.26]).range([height,0])
@@ -84,6 +84,7 @@
           .datum(data_compiled) // 10. Binds data to the line 
           .attr("class", "line_HR") // Assign a class for styling 
           .attr("d", line_HR); // 11. Calls the line generator 
+          .tickFormat(d3.format(""))
          
 
       
