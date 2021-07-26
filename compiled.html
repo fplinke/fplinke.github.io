@@ -67,8 +67,6 @@ g<!DOCTYPE html>
           .duration(2000)
         .attr("height",function(d,i) { return height - y_compiled(data_compiled[i].HR); })
         .attr("y",function(d,i) {return y_compiled(data_compiled[i].HR); });
-        document.getElementById("winner").innerHTML = winner[10];
-        document.getElementById("year").innerHTML = "Please Choose a year below!";
      
      d3.select(".BAchart")
         .selectAll("rect")
@@ -115,8 +113,6 @@ g<!DOCTYPE html>
           .duration(2000)
         .attr("height",function(d,i) { return height - y_SLG(data_compiled[i].SLG); })
         .attr("y",function(d,i) {return y_SLG(data_compiled[i].SLG); });
-        document.getElementById("winner").innerHTML = winner[10];
-        document.getElementById("year").innerHTML = "Please Choose a year below!";
       }
         
    </script>  
