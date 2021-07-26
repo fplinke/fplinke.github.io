@@ -26,7 +26,11 @@
       var width = 1000, height = 600;
       var x_compiled = d3.scaleLinear().domain([0,10]).range([0,width])
       var y_compiled = d3.scaleLinear().domain([125,250]).range([height,0])
-      var color_compiled  = d3.scaleLinear().domain([0,325]).range(["white",rgb(211,84,0)])
+      var color_compiled  = d3.scaleLinear().domain([0,325]).range(["white","orange"])
+      var x_BA = d3.scaleLinear().domain([0,30]).range([0,width])
+      var y_BA = d3.scaleLinear().domain([.2,.3]).range([height,0])
+      var x_SLG = d3.scaleLinear().domain([0,30]).range([0,width])
+      var y_SLG = d3.scaleLinear().domain([.2,.5]).range([height,0])
       var tooltip = d3.select("#tooltip"); 
       
       async function main() {
