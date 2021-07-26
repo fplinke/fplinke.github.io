@@ -112,61 +112,6 @@
           .datum(data_compiled) 
           .attr("class", "line_SLG") 
           .attr("d", line_SLG);  
-       
-       
-         
- 
-        
-         
-     d3.select(".BAchart")
-        .selectAll("rect")
-        .data(data_compiled)
-        .enter()
-        .append("rect")
-        .style("stroke", "black")
-        .style("stroke-width",3)
-        .attr("width",100)
-        .attr("height",y_BA(1))
-        .attr("x",function(d,i) { return x_BA(i); })
-        .attr("y",y_BA(0))
-        .style("fill",function(d,i) {return color_BA(i);})
-        .on("mouseover",function(d,i) {
-          tooltip.style("opacity", 1)
-          .style("left",(d3.event.pageX)+"px")
-          .style("top",(d3.event.pageY)+"px")
-          .html("Year: "+data_compiled[i].Year+" BA: "+data_compiled[i].BA);
-        })
-        .on("mouseout",function() { tooltip.style("opacity", 0) })
-        .transition()
-          .delay(100)
-          .duration(2000)
-        .attr("height",function(d,i) { return height - y_BA(data_compiled[i].BA); })
-        .attr("y",function(d,i) {return y_BA(data_compiled[i].BA); });
-         
-     d3.select(".SLGchart")
-        .selectAll("rect")
-        .data(data_compiled)
-        .enter()
-        .append("rect")
-        .style("stroke", "black")
-        .style("stroke-width",3)
-        .attr("width",100)
-        .attr("height",y_SLG(1))
-        .attr("x",function(d,i) { return x_SLG(i); })
-        .attr("y",y_SLG(0))
-        .style("fill",function(d,i) {return color_SLG(i);})
-        .on("mouseover",function(d,i) {
-          tooltip.style("opacity", 1)
-          .style("left",(d3.event.pageX)+"px")
-          .style("top",(d3.event.pageY)+"px")
-          .html("Year: "+data_compiled[i].Year+" SLG: "+data_compiled[i].SLG);
-        })
-        .on("mouseout",function() { tooltip.style("opacity", 0) })
-        .transition()
-          .delay(100)
-          .duration(2000)
-        .attr("height",function(d,i) { return height - y_SLG(data_compiled[i].SLG); })
-        .attr("y",function(d,i) {return y_SLG(data_compiled[i].SLG); });
       }
         
    </script>  
