@@ -100,7 +100,7 @@
     .attr("d", line); // 11. Calls the line generator 
          
     d3.select(".HRchart").selectAll(".dot")
-    .data(dataset)
+    .data(data_compiled)
   .enter().append("circle") // Uses the enter().append() method
     .attr("class", "dot") // Assign a class for styling
     .attr("cx", function(d, i) { return x_compiled(d.Year) })
