@@ -60,6 +60,10 @@
       var color_SLG  = d3.scaleLinear().domain([0,9]).range(["rgb(35,155,86)","rgb(35,155,86)"])
       var tooltip = d3.select("#tooltip"); 
       
+      var line_HR = d3.line()
+         .x(function(d, i) { return x_compiled(d.Year); }) // set the x values for the line generator
+         .y(function(d) { return y_compiled(d.HR); }) // set the y values for the line generator 
+      
       
       
       async function main() {
@@ -86,7 +90,7 @@
     d3.select(".HRchart").append("path")
     .datum(data_compiled) // 10. Binds data to the line 
     .attr("class", "line") // Assign a class for styling 
-    .attr("d", line); // 11. Calls the line generator 
+    .attr("d", line_HR); // 11. Calls the line generator 
          
     d3.select(".HRchart").selectAll(".dot")
     .data(data_compiled)
