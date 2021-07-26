@@ -68,12 +68,6 @@
        for (var i = 0; i < 10; i++) {
              data_compiled.push(mlb_data[i])  
         }
-        console.log(mlb_data)
-         console.log(data_compiled)
-         
-         var margin = {top: 50, right: 50, bottom: 50, left: 50}
-  , width = window.innerWidth - margin.left - margin.right // Use the window's width 
-  , height = window.innerHeight - margin.top - margin.bottom; // Use the window's height
          
         var line = d3.line()
     .x(function(d, i) { return x_compiled(d.Year); }) // set the x values for the line generator
