@@ -152,7 +152,7 @@
          .style("stroke-dasharray", 5)
           .style("marker-end", "url(#arrowhead)");
          d3.select(".BAchart").append("line")
-         .attr("x1",650)
+         .attr("x1",680)
          .attr("y1",375)
          .attr("x2",800)
          .attr("y2",325)
@@ -176,6 +176,24 @@
                 .attr('x', 75)
                 .attr('y', 125)
                 .attr('fill', 'red')
+         d3.select(".SLGchart").append("line")
+         .attr("x1",300)
+         .attr("y1",175)
+         .attr("x2",75)
+         .attr("y2",410)
+         .style("stroke", "grey")
+         .style("stroke-width", 2)
+         .style("stroke-dasharray", 5)
+          .style("marker-end", "url(#arrowhead)");
+         d3.select(".SLGchart").append("line")
+         .attr("x1",635)
+         .attr("y1",150)
+         .attr("x2",900)
+         .attr("y2",160)
+         .style("stroke", "grey")
+         .style("stroke-width", 2)
+         .style("stroke-dasharray", 5)
+         .style("marker-end", "url(#arrowhead)");
       } 
    </script>  
 </html>
