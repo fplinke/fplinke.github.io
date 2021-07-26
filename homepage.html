@@ -106,7 +106,7 @@
           .attr("d", line_BA); 
          d3.select(".BAchart").append('text').text('The line is trending downwards from 2010 to 2019! Batting averages are dropping slightly!')
                 .attr('x', 75)
-                .attr('y', 450)
+                .attr('y', 375)
                 .attr('fill', 'red')
        
          d3.select(".SLGchart").append("g")
@@ -119,9 +119,9 @@
           .datum(data_compiled) 
           .attr("class", "line_SLG") 
           .attr("d", line_SLG);  
-         d3.select(".SLGchart").append('text').text('The line is trending updwards from 2010 to 2019! Batters are slugging a higer percentage!')
+         d3.select(".SLGchart").append('text').text('The line is trending updwards from 2010 to 2019! Batters are slugging a higher percentage!')
                 .attr('x', 75)
-                .attr('y', 75)
+                .attr('y', 125)
                 .attr('fill', 'red')
       } 
    </script>  
