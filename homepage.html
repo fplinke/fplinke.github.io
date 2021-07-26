@@ -51,7 +51,7 @@
       var width = 1000 - margin.left - margin.right // Use the window's width 
       var height = 600 - margin.top - margin.bottom; // Use the window's height
       var x_HR = d3.scaleLinear().domain([2010,2019]).range([25,width+25])
-      var y_HR = d3.scaleLinear().domain([125,250]).range([height,0])
+      var y_HR = d3.scaleLinear().domain([125,250]).range([height+25,25])
       var x_BA = d3.scaleLinear().domain([0,10]).range([0,width])
       var y_BA = d3.scaleLinear().domain([.24,.26]).range([height,0])
       var color_BA  = d3.scaleLinear().domain([0,9]).range(["rgb(175,122,197)","rgb(175,122,197)"])
