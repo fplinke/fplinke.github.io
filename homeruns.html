@@ -79,6 +79,8 @@
         .data(data_2014)
         .enter()
         .append("rect")
+        .style("stroke", "black")
+        .style("stroke-width",3)
         .attr("width",40)
         .attr("height",function(d,i) { return height - y(i/29); })
         .attr("x",function(d,i) { return x(i); })
