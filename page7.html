@@ -57,8 +57,8 @@
       .attr("stroke", "steelblue")
       .attr("stroke-width", 1.5)
       .attr("d", d3.line()
-        .x_compiled(function(d,i) { return x(data_compiled[i].Year) })
-        .y_compiled(function(d,i) { return y(data_compiled[i].HR) })
+        .x(function(d,i) { return x(data_compiled[i].Year) })
+        .y(function(d,i) { return y(data_compiled[i].HR) })
         )
        
          
