@@ -12,7 +12,7 @@
 </style>
 <style type="text/css">
 .line {
-    fill: none;
+    fill: rgb(211,84,0);
     stroke: #ffab00;
     stroke-width: 3;
 }
@@ -65,9 +65,6 @@
              data_compiled.push(mlb_data[i])  
         }
          
-        var line_HR = d3.line()
-    .x(function(d, i) { return x_compiled(d.Year); }) // set the x values for the line generator
-    .y(function(d) { return y_compiled(d.HR); }) // set the y values for the line generator 
       
       
       d3.select(".HRchart").append("g")
