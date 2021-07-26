@@ -56,20 +56,7 @@
       var y_BA = d3.scaleLinear().domain([.24,.26]).range([height+margin.bottom,margin.top]);
       var x_SLG = d3.scaleLinear().domain([2010,2019]).range([margin.left,width+margin.right]);
       var y_SLG = d3.scaleLinear().domain([.35,.45]).range([height+margin.bottom,margin.top]);
-      var tooltip = d3.select("#tooltip"); 
-      
-       var line_HR = d3.line()
-         .x(function(d, i) { return x_HR(d.Year); }) 
-         .y(function(d) { return y_HR(d.HR); })
-       var line_BA = d3.line()
-         .x(function(d, i) { return x_BA(d.Year); }) 
-         .y(function(d) { return y_BA(d.BA); })
-       var line_SLG = d3.line()
-         .x(function(d, i) { return x_SLG(d.Year); }) 
-         .y(function(d) { return y_SLG(d.SLG); })
-     
-     
-     
+      var tooltip = d3.select("#tooltip");
       
       async function main() {
        const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-compiled-4.csv');
@@ -77,6 +64,16 @@
        for (var i = 0; i < 10; i++) {
              data_compiled.push(mlb_data[i])  
         }
+        
+        var line_HR = d3.line()
+         .x(function(d, i) { return x_HR(d.Year); }) 
+         .y(function(d) { return y_HR(d.HR); })
+       var line_BA = d3.line()
+         .x(function(d, i) { return x_BA(d.Year); }) 
+         .y(function(d) { return y_BA(d.BA); })
+       var line_SLG = d3.line()
+         .x(function(d, i) { return x_SLG(d.Year); }) 
+         .y(function(d) { return y_SLG(d.SLG); }) 
      
         d3.select(".HRchart").append("g")
          .attr("transform", "translate(0,550)")
