@@ -88,7 +88,14 @@
          d3.select(".HRchart").append("path")
           .datum(data_compiled) 
           .attr("class", "line_HR") 
-          .attr("d", line_HR);     
+          .attr("d", line_HR);
+         d3.select(".HRchart")
+         .selectAll("rect")
+        .append("rect")
+        .attr("width",300)
+        .attr("height",100 })
+        .attr("x",300})
+        .attr("y",300})
        
          d3.select(".BAchart").append("g")
          .attr("transform", "translate(0,550)")
