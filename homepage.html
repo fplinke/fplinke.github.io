@@ -35,7 +35,12 @@
       <p style="font-family:Merriweather; font-style:italic; font-size:35px;">Home Runs (HR)</p>
       <p style="font-family:Merriweather; font-style:italic; font-size:25px;">Definition: In baseball, a home run is scored when the ball is hit in such a way that the batter is able to circle the bases and reach home safely in one play without any errors being committed by the defensive team in the process.</p>
       <p style="color:rgb(211,84,0); font-size:35px;">Average MLB Home Runs per Team (2010 - 2019)</p>
-      <svg class="HRchart" width = 1000 height = 600 style="border:solid; background-color:white; stroke-width:5" ></svg>
+      <svg class="HRchart" width = 1000 height = 600 style="border:solid; background-color:white; stroke-width:5" >  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+    refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" />
+    </marker>
+  </defs></svg>
       <p style="font-family:Merriweather; font-style:italic; font-size:35px;">Batting Average (BA)</p>
       <p style="font-family:Merriweather; font-style:italic; font-size:25px;">Definition: In baseball, the batting average is the number of hits divided by at bats. Greater batting average indicates more hits.</p>
       <p style="color:rgb(175,122,197); font-size:35px;">Average MLB Team Batting Average (2010 - 2019)</p>
@@ -109,7 +114,8 @@
          .attr("y2",160)
          .style("stroke", "grey")
          .style("stroke-width", 2)
-         .style("stroke-dasharray", 5);
+         .style("stroke-dasharray", 5)
+         .style("marker-end", "url(#arrowhead)")
        
          d3.select(".BAchart").append("g")
          .attr("transform", "translate(0,550)")
