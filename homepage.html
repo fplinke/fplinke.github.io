@@ -73,6 +73,7 @@
          .y(function(d) { return y_HR(d.HR); }) // set the y values for the line generator 
       
         d3.select(".HRchart").append("g")
+         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
          .attr("class", "x axis")
          .attr("transform", "translate(0," + height + ")")
          .call(d3.axisBottom(x_HR)); // Create an axis component with d3.axisBottom
