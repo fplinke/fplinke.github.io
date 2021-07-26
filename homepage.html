@@ -60,25 +60,24 @@
       var color_SLG  = d3.scaleLinear().domain([0,9]).range(["rgb(35,155,86)","rgb(35,155,86)"])
       var tooltip = d3.select("#tooltip"); 
       
+       var line_HR = d3.line()
+         .x(function(d, i) { return x_HR(d.Year); }) 
+         .y(function(d) { return y_HR(d.HR); })
+     
+      
       async function main() {
        const mlb_data = await d3.csv('https://fplinke.github.io/mlb-stats-compiled-4.csv');
        var data_compiled = [];
        for (var i = 0; i < 10; i++) {
              data_compiled.push(mlb_data[i])  
         }
-         
-        var line_HR = d3.line()
-         .x(function(d, i) { return x_HR(d.Year); }) // set the x values for the line generator
-         .y(function(d) { return y_HR(d.HR); }) // set the y values for the line generator 
      
         d3.select(".HRchart").append("g")
          .attr("transform", "translate(0,550)")
          .call(d3.axisBottom(x_HR));
-        
-         d3.select(".HRchart").append("g")
-           .attr("transform", "translate(50,0)")
-           .call(d3.axisLeft(y_HR)); 
-         
+        d3.select(".HRchart").append("g")
+          .attr("transform", "translate(50,0)")
+          .call(d3.axisLeft(y_HR)); 
          d3.select(".HRchart").append("path")
           .datum(data_compiled) 
           .attr("class", "line_HR") 
