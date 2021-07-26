@@ -74,12 +74,12 @@
         
         d3.select(".HRchart").append("g")
          .attr("transform", "translate(0,550)")
-         .call(d3.axisBottom(x_HR)) // Create an axis component with d3.axisBottom
-         .tickFormat(d3.format(""));
+         .call(d3.axisBottom(x_HR)); 
+
       
          d3.select(".HRchart").append("g")
            .attr("transform", "translate(50,0)")
-           .call(d3.axisLeft(y_HR)); // Create an axis component with d3.axisLeft 
+           .call(d3.axisLeft(y_HR)); 
          
          d3.select(".HRchart").append("path")
           .datum(data_compiled) 
