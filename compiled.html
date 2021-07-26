@@ -82,7 +82,7 @@
           tooltip.style("opacity", 1)
           .style("left",(d3.event.pageX)+"px")
           .style("top",(d3.event.pageY)+"px")
-          .html("Year: "+data_compiled[i].Year+" HRs: "+data_compiled[i].BA);
+          .html("Year: "+data_compiled[i].Year+" BA: "+data_compiled[i].BA);
         })
         .on("mouseout",function() { tooltip.style("opacity", 0) })
         .transition()
@@ -105,7 +105,7 @@
           tooltip.style("opacity", 1)
           .style("left",(d3.event.pageX)+"px")
           .style("top",(d3.event.pageY)+"px")
-          .html("Year: "+data_compiled[i].Year+" HRs: "+data_compiled[i].SLG);
+          .html("Year: "+data_compiled[i].Year+" SLG: "+data_compiled[i].SLG);
         })
         .on("mouseout",function() { tooltip.style("opacity", 0) })
         .transition()
