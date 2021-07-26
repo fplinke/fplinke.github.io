@@ -1,4 +1,4 @@
-g<!DOCTYPE html>
+<!DOCTYPE html>
 <script src='https://d3js.org/d3.v5.min.js'></script>
 <style> 
    #tooltip {
@@ -33,7 +33,7 @@ g<!DOCTYPE html>
       var color_BA  = d3.scaleLinear().domain([0,9]).range(["rgb(175,122,197)","rgb(175,122,197)"])
       var x_SLG = d3.scaleLinear().domain([0,10]).range([0,width])
       var y_SLG = d3.scaleLinear().domain([.2,.5]).range([height,0])
-      var color_SLB  = d3.scaleLinear().domain([0,9]).range(["color:rgb(35,155,86);","color:rgb(35,155,86);"])
+      var color_SLB  = d3.scaleLinear().domain([0,9]).range(["color:rgb(35,155,86)","color:rgb(35,155,86)"])
       var tooltip = d3.select("#tooltip"); 
       
       async function main() {
@@ -98,7 +98,7 @@ g<!DOCTYPE html>
         .append("rect")
         .attr("width",100)
         .attr("height",y_SLG(1))
-        .attr("x",function(d,i) { return x_SLB(i); })
+        .attr("x",function(d,i) { return x_SLG(i); })
         .attr("y",y_SLG(0))
         .style("fill",function(d,i) {return color_SLG(i);})
         .on("mouseover",function(d,i) {
