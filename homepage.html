@@ -30,6 +30,12 @@
 </style>
 <html>
    <body onload='main()' style="text-align:center; background-color:rgb(230,230,230);">
+      <p>  
+         Click to view different years!
+         <button onclick="triggerTransitionHR()">Home Runs</button>
+         <button onclick="triggerTransitionBA()">Batting Average</button>
+         <button onclick="triggerTransitionSLG()">Slugging Percentage</button>
+      </p>
       <h1 style="font-family:Merriweather; font-size:45px;">Major League Baseball (MLB) Statistics from the Last Decade</h1>
       <p style="font-family:Merriweather; font-size:20px; "> WELCOME! This website can be used to explore offensive statistics in the MLB from the last decade. First, data is explored at a high level and examined for year over year trends...</p>
       <p style="font-family:Merriweather; font-style:italic; font-size:20px;"> Hover over colors in graphs below to see years and statistics!</p>
@@ -43,13 +49,6 @@
          <button onclick="location.href='https://fplinke.github.io/wins.html';" style="font-size:18px;">Detailed Statistics!</button>
       </p>
       <div id="tooltip"></div>
-            <p>  
-         Click to view different years!
-         <button onclick="triggerTransitionHR()">Home Runs</button>
-         <button onclick="triggerTransitionBA()">Batting Average</button>
-         <button onclick="triggerTransitionSLG()">Slugging Percentage</button>
-      </p>
-
    </body>
    <script>
       
@@ -81,7 +80,7 @@
              data_compiled.push(mlb_data[i])  
         }
         
-     
+     <div id="HR">
         d3.select(".HRchart").append("g")
          .attr("transform", "translate(0,550)")
          .call(d3.axisBottom(x_HR));
@@ -92,7 +91,8 @@
           .datum(data_compiled) 
           .attr("class", "line_HR") 
           .attr("d", line_HR);  
-         
+      </div>   
+       
          d3.select(".BAchart").append("g")
          .attr("transform", "translate(0,550)")
          .call(d3.axisBottom(x_BA));
