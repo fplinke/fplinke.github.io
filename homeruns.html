@@ -14,10 +14,10 @@
 <html>
    <body onload='main()'>
       <h1 style="color:rgb(211,84,0); text-align:center;">MAJOR LEAGUE BASEBALL: TEAM HOME RUN TOTALS</h1>
-      <p style="color:black; font-size:25px; font-family:Monaco;"> World Series Champion: <span id="winner"></span></p>
-      <p style="color:black; font-size:25px; font-family:Monaco;">Year: <span id="year"></span></p>
-      <p style="color:rgb(211,84,0); font-size:25px;">Hover over each color to see the team and number of home runs hit!</p>
-      <svg class="chart" width = 1200 height = 600 style="border:solid;" viewBox="0 0 1200 600"></svg>
+      <p style="color:black; font-size:25px; font-family:Monaco; text-align:center;"> World Series Champion: <span id="winner"></span></p>
+      <p style="color:black; font-size:25px; font-family:Monaco; text-align:center;">Year: <span id="year"></span></p>
+      <p style="color:rgb(211,84,0); font-size:25px; text-align:center;">Hover over each color to see the team and number of home runs hit!</p>
+      <svg class="chart" width = 1200 height = 600 style="border:solid; text-align:center;" viewBox="0 0 1200 600"></svg>
       <div id="tooltip"></div>
       <p>  
          Click to view different years!
@@ -34,8 +34,8 @@
       </p>
       <p>
          After exploring this data, please click to see other stats: 
-         <button onclick="location.href='https://fplinke.github.io/wins.html';">Return to Win Statistics!</button> 
-         <button onclick="location.href='https://fplinke.github.io/battingaverage.html';">See Batting Average Statistics!</button>
+         <button onclick="location.href='https://fplinke.github.io/wins.html';" style="text-align:center;">Return to Win Statistics!</button> 
+         <button onclick="location.href='https://fplinke.github.io/battingaverage.html';" style="text-align:center;">See Batting Average Statistics!</button>
       </p>
    </body>
    <script>
