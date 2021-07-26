@@ -54,6 +54,7 @@
         .data(data_compiled)
         .enter()
         .append("rect")
+        .attr("stroke-width", 5)
         .attr("width",100)
         .attr("height",y_compiled(250))
         .attr("x",function(d,i) { return x_compiled(i); })
