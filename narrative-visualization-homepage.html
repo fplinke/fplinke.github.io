@@ -104,8 +104,7 @@
          .call(d3.axisBottom(x_HR));
         d3.select(".HRchart").append("g")
           .attr("transform", "translate(50,0)")
-          .call(d3.axisLeft(y_HR))
-          .tickFormat(d3.format("d"));
+          .call(d3.axisLeft(y_HR));
          d3.select(".HRchart").append("path")
           .datum(data_compiled) 
           .attr("class", "line_HR") 
