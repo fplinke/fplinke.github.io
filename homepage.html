@@ -16,10 +16,6 @@
     stroke: rgb(211,84,0);
     stroke-width: 3;
 }
-.overlay {
-  fill: rgb(211,84,0);
-  pointer-events: all;
-}
 
 </style>
 <html>
@@ -81,13 +77,7 @@
     .attr("class", "line") // Assign a class for styling 
     .attr("d", line_HR); // 11. Calls the line generator 
          
-    d3.select(".HRchart").selectAll(".dot")
-    .data(data_compiled)
-  .enter().append("circle") // Uses the enter().append() method
-    .attr("class", "dot") // Assign a class for styling
-    .attr("cx", function(d, i) { return x_compiled(d.Year) })
-    .attr("cy", function(d) { return y_compiled(d.HR) })
-    .attr("r", 0)
+
       
        
          
