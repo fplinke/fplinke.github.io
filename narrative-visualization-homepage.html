@@ -138,7 +138,7 @@
        
          d3.select(".BAchart").append("g")
          .attr("transform", "translate(0,550)")
-         .call(d3.axisBottom(x_BA)tickFormat(d3.format(",.1f")));
+         .call(d3.axisBottom(x_BA).tickFormat(d3.format(",.1f")));
         d3.select(".BAchart").append("g")
           .attr("transform", "translate(50,0)")
           .call(d3.axisLeft(y_BA)); 
