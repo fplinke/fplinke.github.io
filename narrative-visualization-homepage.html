@@ -105,7 +105,7 @@
         
         d3.select(".HRchart").append("g")
          .attr("transform", "translate(0,550)")
-         .call(d3.axisBottom(x_HR));
+         .call(d3.axisBottom(x_HR).tickFormat(d3.format("")));
         d3.select(".HRchart").append("g")
           .attr("transform", "translate(50,0)")
           .call(d3.axisLeft(y_HR));
@@ -172,7 +172,7 @@
        
          d3.select(".SLGchart").append("g")
          .attr("transform", "translate(0,550)")
-         .call(d3.axisBottom(x_SLG));
+         .call(d3.axisBottom(x_SLG).tickFormat(d3.format("")));
         d3.select(".SLGchart").append("g")
           .attr("transform", "translate(50,0)")
           .call(d3.axisLeft(y_SLG)); 
